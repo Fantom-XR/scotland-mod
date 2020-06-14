@@ -4,6 +4,8 @@ from discord.ext.commands.cooldowns import BucketType
 import random
 
 bot = commands.Bot(command_prefix=commands.when_mentioned_or('.'))
+bot.remove_command("help")
+
 
 @bot.event
 async def on_ready():
@@ -59,14 +61,6 @@ async def suggest(ctx, *, message=None):
     await ctx.send(f"{ctx.author.mention} your suggestion has been send!")
     await channel.send(embed =embed)
 
-@bot.command()
-@commands.has_role("715460330716790795")
-@commands.guild_only()
-async def announce(ctx, chan: discord.TextChannel, * , announcement=None):
-    """|| announces something """
-    if not announcement:
-        await ctx.send("provide a announcement")
-    await chan.send(f'{announcement}')
 
 @bot.command()
 async def hub(ctx):
@@ -108,5 +102,39 @@ async def member():
     name1 = (f"Member Count : {member.guild.member_count}")
     chan = member.guild.get_channel(678552816117088290)
     await chan.edit(name=name1)
+
+@bot.command()
+async def mb(ctx):
+    await ctx.send(f"there are {ctx.guild.member_count} members in the server!")
+
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+
+    brooklyn_99_quotes = [
+        'Nah',
+        'No u ',
+        'well thats not the truth',
+        'well whats the prob boomer?',
+    ]
+
+    if message.content in ('Reserve bot sucks','this bot sucks', 'reserve bot is bad', 'reserve bot needs work', 'ew this bot', 'reserve sucks'):
+        response = random.choice(brooklyn_99_quotes)
+        await message.channel.send(response)
+    await bot.process_commands(message)
+
+@suggest.error
+async def suggest_error(ctx, error):
+    if isinstance(error, commands.CommandOnCooldown):
+        await ctx.send(f"Hey! you need to wait {(int(error.retry_after/60))} mins before using it again!")
+
+@new.error
+async def suggest_error(ctx, error):
+    if isinstance(error, commands.CommandOnCooldown):
+        await ctx.send(f"Hey! you need to wait {(int(error.retry_after/60))} mins before using it again!")
+
+bot.load_extension("COgs.help")
+bot.load_extension("COgs.sell")
 
 bot.run("NjgxNTM3NTc0NTkzODg4MzM2.Xt9x8w.hZOUBimmoujII1JEOeBJZZphXVU")
