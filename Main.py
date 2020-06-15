@@ -36,6 +36,13 @@ async def info(ctx, *, member: discord.Member):
 
 @bot.command()
 @commands.guild_only()
+@commands.has_guild_permissions(administrator = True)
+async def dm(ctx, member: discord.Member, * , text=None):
+    await member.send(f"{text}")
+    
+
+@bot.command()
+@commands.guild_only()
 @commands.cooldown(1,3600,BucketType.member)
 async def suggest(ctx, *, message=None):
     """
@@ -45,7 +52,7 @@ async def suggest(ctx, *, message=None):
         await ctx.send("Please Introduce a suggestion :/")
         return
  
-    channel = bot.get_channel(704312409220710451)
+    channel = bot.get_channel(707254658162360361)
     message = message
  
     embed = discord.Embed(timestamp=ctx.message.created_at)
@@ -132,7 +139,7 @@ async def suggest_error(ctx, error):
 @new.error
 async def suggest_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
-        await ctx.send(f"Hey! you need to wait {(int(error.retry_after/60))} mins before using it again!")
+        await ctx.send(f"Hey! you need to wait {(int(error.retry_after/60))} mins before using it again! ")
 
 bot.load_extension("COgs.help")
 bot.load_extension("COgs.sell")
