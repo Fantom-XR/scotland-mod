@@ -1,1 +1,1 @@
-ECHO is on.
+worker: python3 Main.py

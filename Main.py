@@ -137,4 +137,4 @@ async def suggest_error(ctx, error):
 bot.load_extension("COgs.help")
 bot.load_extension("COgs.sell")
 
-bot.run("NjgxNTM3NTc0NTkzODg4MzM2.Xt9x8w.hZOUBimmoujII1JEOeBJZZphXVU")
+bot.run("NjgxNTM3NTc0NTkzODg4MzM2.XucL2A.Q0wkpqwo8cZW7vT-1GDdBx5HFIM")
