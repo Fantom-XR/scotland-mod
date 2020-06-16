@@ -48,7 +48,7 @@ class marketplace(commands.Cog):
         embed.add_field(name="Price:", value=f"{price.content}")
         embed.add_field(name="Note:", value=f"{note.content}")
         embed.set_image(url=attachment_url)
-        channel = self.bot.get_channel(681051529427550212)
+        channel = self.bot.get_channel(722461003639685280)
         await channel.send(embed=embed)
 
     @commands.command()
@@ -84,7 +84,7 @@ class marketplace(commands.Cog):
         embed.add_field(name="Hiring:", value=hire.content)
         embed.add_field(name="payment:", value=price.content)
         embed.add_field(name="Notes:", value=notes.content)
-        channel = self.bot.get_channel(714537321734602893)
+        channel = self.bot.get_channel(722460988217098322)
         await channel.send(embed=embed)
 
 
@@ -130,7 +130,7 @@ class marketplace(commands.Cog):
         embed.add_field(name="discription", value=notes.content)
         embed.add_field(name="link" , value =f"{price.content}")
         embed.set_image(url=attachment_url)
-        channel = self.bot.get_channel(681051648285474829)
+        channel = self.bot.get_channel(722460970039115826)
         await channel.send(embed=embed)
         
 
