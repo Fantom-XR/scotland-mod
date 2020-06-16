@@ -126,7 +126,7 @@ class marketplace(commands.Cog):
 
         embed = discord.Embed(timestamp=ctx.message.created_at)
         embed.set_author(name=f"advertisement")
-        embed.add_field(name="name", value=name)
+        embed.add_field(name="name", value=name.content)
         embed.add_field(name="discription", value=notes.content)
         embed.add_field(name="link" , value =f"{price.content}")
         embed.set_image(url=attachment_url)
