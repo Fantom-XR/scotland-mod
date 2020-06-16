@@ -51,6 +51,7 @@ class Cog(commands.Cog):
 
     @commands.command()
     @commands.guild_only()
+    @commands.has_guild_permissions(administrator = True)
     async def announce(self,ctx, chan: discord.TextChannel, * , announcement=None):
         """|| announces something """
         if not announcement:
