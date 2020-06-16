@@ -9,9 +9,13 @@ class Help(commands.Cog):
     async def help(self, ctx):
         colour = discord.Colour.from_rgb(54, 57, 62)
         embed = discord.Embed(colour = colour, timestamp = ctx.message.created_at)
-        embed2 = discord.Embed(colour = colour, timestao = ctx.message.created_at)
+        embed2 = discord.Embed(colour = colour, timestamp = ctx.message.created_at)
         embed3 = discord.Embed(colour = colour, timestamp = ctx.message.created_at)
-        embed4 = discord.Embed(colour = colour, timestao = ctx.message.created_at)
+        embed4 = discord.Embed(colour = colour, timestamp = ctx.message.created_at)
+        embed.set_author(name="General help")
+        embed2.set_author(name="Fun help")
+        embed3.set_author(name="Moderation help")
+        embed4.set_author(name="Marketplace help")
 
 
         embed.add_field(name = "Help", value="Shows this message", inline=False)
