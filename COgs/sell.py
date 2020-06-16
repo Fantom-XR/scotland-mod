@@ -49,7 +49,6 @@ class marketplace(commands.Cog):
         embed.add_field(name="Note:", value=f"{note.content}")
         embed.set_image(url=attachment_url)
         channel = self.bot.get_channel(681051529427550212)
-        await ctx.author.send(embed=embed)
         await channel.send(embed=embed)
 
     @commands.command()
@@ -86,7 +85,6 @@ class marketplace(commands.Cog):
         embed.add_field(name="payment:", value=price.content)
         embed.add_field(name="Notes:", value=notes.content)
         channel = self.bot.get_channel(714537321734602893)
-        await ctx.author.send(embed=embed)
         await channel.send(embed=embed)
 
 
@@ -127,11 +125,12 @@ class marketplace(commands.Cog):
                 
 
         embed = discord.Embed(timestamp=ctx.message.created_at)
-        embed.set_author(name=f"{name}")
+        embed.set_author(name=f"advertisement")
+        embed.add_field(name="name", value=name)
         embed.add_field(name="discription", value=notes.content)
-        embed.add_field(name="link" , value =f"[Discord invite link]({price})")
+        embed.add_field(name="link" , value =f"{price.content}")
         embed.set_image(url=attachment_url)
-        channel = self.bot.get_channel(714537321734602893)
+        channel = self.bot.get_channel(681051648285474829)
         await channel.send(embed=embed)
         
 

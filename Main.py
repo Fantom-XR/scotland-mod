@@ -34,11 +34,11 @@ async def info(ctx, *, member: discord.Member):
     fmt = '{0} joined on {0.joined_at} and has {1} roles.'
     await ctx.send(fmt.format(member, len(member.roles))) 
 
-@bot.command()
+"""@bot.command()
 @commands.guild_only()
 @commands.has_guild_permissions(administrator = True)
 async def dm(ctx, member: discord.Member, * , text=None):
-    await member.send(f"{text}")
+    await member.send(f"{text}")"""
     
 
 @bot.command()
@@ -82,10 +82,10 @@ async def group(ctx):
     await ctx.send("https://web.roblox.com/groups/5648445/Reserve-Tech#!/aboutemoji_2")
 
 
-@bot.command(name="8ball")
+'''@bot.command(name="8ball")
 async def _ball(ctx):
     """|| its a 8ball!"""
-    await ctx.send(random.choice(["yes", "no", "maybe", "ask person above you", "why asking me you bully", "who knows?", "im busy talk later", "no u",]))
+    await ctx.send(random.choice(["yes", "no", "maybe", "ask person above you", "why asking me you bully", "who knows?", "im busy talk later", "no u",]))'''
 
 
 @bot.command()
@@ -143,5 +143,6 @@ async def suggest_error(ctx, error):
 
 bot.load_extension("COgs.help")
 bot.load_extension("COgs.sell")
-
+bot.load_extension("COgs.fun")
+bot.load_extension("COgs.moderaion")
 bot.run("NjgxNTM3NTc0NTkzODg4MzM2.XucL2A.Q0wkpqwo8cZW7vT-1GDdBx5HFIM")
