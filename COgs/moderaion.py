@@ -39,6 +39,16 @@ class Cog(commands.Cog):
                 await ctx.send(f'Unbanned {user.mention}')
                 return
 
+        
+    @commands.command()
+    @commands.has_guild_permissions(manage_messages= True)
+    async def clear(self,ctx, amount=0):
+        """
+       || Deletes messages
+        """
+        await ctx.message.delete()
+        await ctx.channel.purge(limit=amount)
+
     @commands.command()
     @commands.guild_only()
     async def announce(self,ctx, chan: discord.TextChannel, * , announcement=None):
