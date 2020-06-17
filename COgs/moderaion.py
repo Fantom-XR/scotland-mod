@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+import asyncio
 
 
 class Cog(commands.Cog):
@@ -52,7 +53,7 @@ class Cog(commands.Cog):
     @commands.command()
     @commands.guild_only()
     @commands.has_guild_permissions(administrator = True)
-    async def announce(self,ctx, chan: discord.TextChannel, * , announcement=None):
+    async def announce2(self,ctx, chan: discord.TextChannel, * , announcement=None):
         """|| announces something """
         if not announcement:
             await ctx.send("provide a announcement")
@@ -69,6 +70,68 @@ class Cog(commands.Cog):
     @commands.has_guild_permissions(administrator = True)
     async def dm(self,ctx, member: discord.Member, * , text=None):
         await member.send(f"{text}")
+
+    @commands.command()
+    @commands.guild_only()
+    @commands.has_guild_permissions(administrator = True)
+    async def announce(self,ctx, chan: discord.TextChannel, * , announcement=None):
+        """|| announces something """
+        if not announcement:
+            await ctx.send("provide a announcement")
+        embed = discord.Embed(timestamp=ctx.message.created_at)
+        embed.add_field(name="Announcement" , value=announcement)
+        embed.set_footer(text=f"Send by {ctx.author}")
+        await chan.send(embed=embed)
+    
+    @commands.command()
+    @commands.guild_only()
+    @commands.has_guild_permissions(administrator=True)
+    async def banner(self, ctx,chan: discord.TextChannel, link):
+        embed= discord.Embed()
+        embed.set_image(url=link)
+        await chan.send(embed=embed)
+
+    @commands.command()
+    @commands.has_guild_permissions(administrator=True)
+    async def product(self, ctx, chan: discord.TextChannel):
+        await ctx.send("Whats the product?")
+        def check(m):
+            return m.author.id == ctx.author.id and m.channel.id == ctx.channel.id
+        try:
+            item = await self.bot.wait_for('message', check=check, timeout=120)
+        except asyncio.TimeoutError:
+            await ctx.send("Timed out")
+        else:
+            await ctx.send("Whats the price?")
+            try:
+                price = await self.bot.wait_for('message', check=check, timeout=120)
+            except asyncio.TimeoutError:
+                await ctx.send("Timed out")
+            else:
+                await ctx.send("Any note?")
+                try:
+                    note = await self.bot.wait_for('message', check=check, timeout=120)
+                except asyncio.TimeoutError:
+                    await ctx.send("Timed out")
+                else:
+                    await ctx.send("please provide a image (no links) ")
+                    try:
+                        Image = await self.bot.wait_for('message', check=check, timeout=120)
+                        attachment = Image.attachments[0]
+                        attachment_url = attachment.url
+                    except asyncio.TimeoutError:
+                        await ctx.send("Timed out")
+                    else:
+                        await ctx.send("DONE!")
+
+        embed = discord.Embed()
+        embed.set_author(name=f"Item")
+        embed.add_field(name="product" , value=item.content)
+        embed.add_field(name="Price" , value=price.content)
+        embed.add_field(name="Note" , value=note.content)
+        embed.set_image(url=attachment_url)
+        await chan.send(embed=embed)
+
 
 def setup(bot):
     bot.add_cog(Cog(bot))
