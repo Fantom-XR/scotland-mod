@@ -38,6 +38,7 @@ async def info(ctx, *, member: discord.Member):
 @commands.guild_only()
 @commands.has_guild_permissions(administrator = True)
 async def dm(ctx, member: discord.Member, * , text=None):
+async def dm(ctx, member: discord.Member, * , text=None) :
     await member.send(f"{text}")"""
     
 
