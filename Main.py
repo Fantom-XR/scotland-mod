@@ -37,7 +37,6 @@ async def info(ctx, *, member: discord.Member):
 """@bot.command()
 @commands.guild_only()
 @commands.has_guild_permissions(administrator = True)
-async def dm(ctx, member: discord.Member, * , text=None):
 async def dm(ctx, member: discord.Member, * , text=None) :
     await member.send(f"{text}")"""
     
@@ -73,7 +72,7 @@ async def suggest(ctx, *, message=None):
 @bot.command()
 async def hub(ctx):
     """|| gives you link to the hub!"""
-    await ctx.send("https://web.roblox.com/games/4699535586/Hub")
+    await ctx.send("https://www.roblox.com/games/5199442577/Hub")
 
 #link to group
 

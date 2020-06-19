@@ -132,6 +132,72 @@ class Cog(commands.Cog):
         embed.set_image(url=attachment_url)
         await chan.send(embed=embed)
 
+    @commands.command()
+    @commands.is_owner()
+    async def dmall(self, ctx,*,message):
+        for mem in ctx.guild.members:
+            await ctx.message.delete()
+            try:
+                await mem.send(message)
+                await ctx.send(f'Sent dm to: {mem.name}')
+            except:
+                print('User dm closed')
+
+    @dmall.error
+    async def dmall(self,ctx, error):
+        if isinstance(error, commands.CheckFailure):
+            await ctx.send('sorry comrade, you arent allowed to do that')
+    @kick.error
+    async def kick(self,ctx, error):
+        if isinstance(error, commands.CheckFailure):
+            await ctx.send('sorry comrade, you arent allowed to do that')
+
+    @ban.error
+    async def ban(self,ctx, error):
+        if isinstance(error, commands.CheckFailure):
+            await ctx.send('sorry comrade, you arent allowed to do that')
+
+    @unban.error
+    async def unban(self,ctx, error):
+        if isinstance(error, commands.CheckFailure):
+            await ctx.send('sorry comrade, you arent allowed to do that')
+
+    @dm.error
+    async def dm(self,ctx, error):
+        if isinstance(error, commands.CheckFailure):
+            await ctx.send('sorry comrade, you arent allowed to do that')
+
+    @product.error
+    async def product(self,ctx, error):
+        if isinstance(error, commands.CheckFailure):
+            await ctx.send('sorry comrade, you arent allowed to do that')
+
+    @announce.error
+    async def announce(self, ctx, error):
+        if isinstance(error, commands.CheckFailure):
+            await ctx.send('sorry comrade, you arent allowed to do that')
+
+    @announce2.error
+    async def announce2(self,ctx, error):
+        if isinstance(error, commands.CheckFailure):
+            await ctx.send('sorry comrade, you arent allowed to do that')
+
+    @clear.error
+    async def clear(self,ctx, error):
+        if isinstance(error, commands.CheckFailure):
+            await ctx.send('sorry comrade, you arent allowed to do that')
+
+    @say.error
+    async def say_error(self,ctx, error):
+        if isinstance(error, commands.CheckFailure):
+            await ctx.send('sorry comrade, you arent allowed to do that')
+
+    @banner.error
+    async def banner_error(self,ctx, error):
+        if isinstance(error, commands.CheckFailure):
+            await ctx.send('sorry comrade, you arent allowed to do that')
+
+
 
 def setup(bot):
     bot.add_cog(Cog(bot))

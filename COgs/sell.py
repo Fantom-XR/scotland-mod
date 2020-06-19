@@ -8,12 +8,12 @@ class marketplace(commands.Cog):
         self.bot = bot
     
     @commands.command()
-    @commands.dm_only()
     @commands.cooldown(1,3600,BucketType.member)
     async def sell(self, ctx):
+        await ctx.send('check your dm')
         await ctx.author.send("what product are you selling?")
-        def check(m):
-            return m.author.id == ctx.author.id and m.channel.id == ctx.channel.id
+        def check(msg):
+            return not msg.guild and msg.author == ctx.author
         try:
             item = await self.bot.wait_for('message', check=check, timeout=120)
         except asyncio.TimeoutError:
@@ -52,12 +52,12 @@ class marketplace(commands.Cog):
         await channel.send(embed=embed)
 
     @commands.command()
-    @commands.dm_only()
     @commands.cooldown(1,3600,BucketType.member)
     async def hire(self, ctx):
+        await ctx.send('check your dm')
         await ctx.author.send("Whom are you hiring?")
-        def check(m):
-            return m.author.id == ctx.author.id and m.channel.id == ctx.channel.id
+        def check(msg):
+            return not msg.guild and msg.author == ctx.author
         try:
             hire = await self.bot.wait_for('message', check=check, timeout=120)
         except asyncio.TimeoutError:
@@ -90,12 +90,12 @@ class marketplace(commands.Cog):
 
 
     @commands.command()
-    @commands.dm_only()
     @commands.cooldown(1,3600,BucketType.member)
     async def ad(self, ctx):
+        await ctx.send('check your dm')
         await ctx.author.send("Whats the name of your company")
-        def check(m):
-            return m.author.id == ctx.author.id and m.channel.id == ctx.channel.id
+        def check(msg):
+            return not msg.guild and msg.author == ctx.author
         try:
             name = await self.bot.wait_for('message', check=check, timeout=120)
         except asyncio.TimeoutError:
@@ -123,15 +123,17 @@ class marketplace(commands.Cog):
                     else:
                         await ctx.author.send("DONE!")
                 
-
+        
         embed = discord.Embed(timestamp=ctx.message.created_at)
         embed.set_author(name=f"advertisement")
         embed.add_field(name="name", value=name.content)
         embed.add_field(name="discription", value=notes.content)
         embed.add_field(name="link" , value =f"{price.content}")
         embed.set_image(url=attachment_url)
+        embed.set_footer(text=f"Send by {ctx.author}")
         channel = self.bot.get_channel(722460970039115826)
         await channel.send(embed=embed)
+        
         
 
     @sell.error
