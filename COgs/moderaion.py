@@ -132,13 +132,6 @@ class Cog(commands.Cog):
         embed.set_image(url=attachment_url)
         await chan.send(embed=embed)
 
-    @commands.command()
-    @commands.is_owner()
-    async def dmall(self, ctx,*,message):
-        for mem in ctx.guild.members:
-            await mem.send(message)
-            await ctx.send(f'Sent dm to: {mem.name}')
-
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.CheckFailure):
