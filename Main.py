@@ -19,12 +19,12 @@ async def ping(ctx):
 
 @bot.event
 async def on_member_join(member):
-    chan1 = member.guild.get_channel(699451571540590623)
+    chan1 = member.guild.get_channel(724211449760710696)
     await chan1.send(f"welcone {member.mention}, there are {member.guild.member_count} members in the server ! ")
 
 @bot.event
 async def on_member_remove(member):
-    chan = member.guild.get_channel(699451571540590623)
+    chan = member.guild.get_channel(724211449760710696)
     await chan.send(f"{member.mention} decided to leave Reserve Tech :( , there are {member.guild.member_count} members in the server now")
 
 @bot.command()
@@ -52,7 +52,7 @@ async def suggest(ctx, *, message=None):
         await ctx.send("Please Introduce a suggestion :/")
         return
  
-    channel = bot.get_channel(707254658162360361)
+    channel = bot.get_channel(724241618516836383)
     message = message
  
     embed = discord.Embed(timestamp=ctx.message.created_at)
@@ -99,7 +99,7 @@ async def new(ctx,*, reason=None):
     ctx.guild.default_role: discord.PermissionOverwrite(read_messages=False),
     ctx.guild.me: discord.PermissionOverwrite(read_messages=True),
     ctx.guild.get_role(715460330716790795): discord.PermissionOverwrite(read_messages=True)}
-    cat = ctx.guild.get_channel(695485906022301777)
+    cat = ctx.guild.get_channel(724251967328747590)
     car = (f"{ctx.author}'s ticket")
     channel = await cat.create_text_channel(name=car,overwrites=overwrites, reason=reason, option=None,topic=reason)
     await channel.send(f"hey, {ctx.author.mention} this is your ticket please wait atleast 8 hours till someone replys and do not ping if no one has seen the ticket yet")
@@ -145,4 +145,5 @@ bot.load_extension("COgs.help")
 bot.load_extension("COgs.sell")
 bot.load_extension("COgs.fun")
 bot.load_extension("COgs.moderaion")
+
 bot.run("NjgxNTM3NTc0NTkzODg4MzM2.XucL2A.Q0wkpqwo8cZW7vT-1GDdBx5HFIM")
