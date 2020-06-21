@@ -98,7 +98,7 @@ class Cog(commands.Cog):
             await ctx.send("DONE")
 
         embed= discord.Embed()
-        embed.add_field(name=heading.content, value=item.content)
+        embed.add_field(name=heading, value=item.content)
         embed.set_image(url=link)
         await chan.send(embed=embed)
 
@@ -142,11 +142,6 @@ class Cog(commands.Cog):
         embed.add_field(name="Note" , value=note.content)
         embed.set_image(url=attachment_url)
         await chan.send(embed=embed)
-
-    @commands.Cog.listener()
-    async def on_command_error(self, ctx, error):
-        if isinstance(error, commands.CheckFailure):
-            await ctx.send('sorry comrade, you arent allowed to do that')
 
 def setup(bot):
     bot.add_cog(Cog(bot))
