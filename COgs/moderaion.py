@@ -86,8 +86,19 @@ class Cog(commands.Cog):
     @commands.command()
     @commands.guild_only()
     @commands.has_guild_permissions(administrator=True)
-    async def banner(self, ctx,chan: discord.TextChannel, link):
+    async def banner(self, ctx,chan: discord.TextChannel, link, * , heading):
+        await ctx.send("whats the discription?")
+        def check(m):
+            return m.author.id == ctx.author.id and m.channel.id == ctx.channel.id
+        try:
+            item = await self.bot.wait_for('message', check=check, timeout=120)
+        except asyncio.TimeoutError:
+            await ctx.send("Timed out")
+        else:
+            await ctx.send("DONE")
+
         embed= discord.Embed()
+        embed.add_field(name=heading, value=item)
         embed.set_image(url=link)
         await chan.send(embed=embed)
 
