@@ -98,7 +98,7 @@ class Cog(commands.Cog):
             await ctx.send("DONE")
 
         embed= discord.Embed()
-        embed.add_field(name=heading, value=item)
+        embed.add_field(name=heading.content, value=item.content)
         embed.set_image(url=link)
         await chan.send(embed=embed)
 
