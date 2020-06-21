@@ -140,8 +140,6 @@ class Cog(commands.Cog):
             try:
                 await mem.send(message)
                 await ctx.send(f'Sent dm to: {mem.name}')
-            else:
-                print("dms closed")
 
     @dmall.error
     async def dmall(self,ctx, error):
