@@ -105,8 +105,8 @@ class Cog(commands.Cog):
             else:
                 await ctx.send("DONE!")
 
-
-        embed= discord.Embed()
+        color = 0x36393F
+        embed= discord.Embed(color=color)
         embed.add_field(name=heading, value=item.content)
         embed.set_image(url=attachment_url)
         await chan.send(embed=embed)
