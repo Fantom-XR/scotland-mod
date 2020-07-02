@@ -19,13 +19,13 @@ class marketplace(commands.Cog):
         except asyncio.TimeoutError:
             await ctx.author.send("Timed out")
         else:
-            await ctx.send("Whats the price?")
+            await ctx.author.send("Whats the price?")
             try:
                 price = await self.bot.wait_for('message', check=check, timeout=120)
             except asyncio.TimeoutError:
                 await ctx.author.send("Timed out")
             else:
-                await ctx.send("Any note?")
+                await ctx.author.send("Any note?")
                 try:
                     note = await self.bot.wait_for('message', check=check, timeout=120)
                 except asyncio.TimeoutError:
@@ -127,7 +127,7 @@ class marketplace(commands.Cog):
         embed = discord.Embed(timestamp=ctx.message.created_at)
         embed.set_author(name=f"advertisement")
         embed.add_field(name="name", value=name.content)
-        embed.add_field(name="discription", value=notes.content)
+        embed.add_field(name="Description", value=notes.content)
         embed.add_field(name="link" , value =f"{price.content}")
         embed.set_image(url=attachment_url)
         embed.set_footer(text=f"Send by {ctx.author}")

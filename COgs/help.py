@@ -1,5 +1,7 @@
 import discord
 from discord.ext import commands
+from discord.enums import ActivityType, Status
+from types import SimpleNamespace
 
 class Help(commands.Cog):
     def __init__(self, bot):
