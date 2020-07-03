@@ -25,8 +25,7 @@ Requirements
 - Answer questions in detail and to the best of your ability
 - Must have 50+ members 
 Good luck!
-
-**IF YOU DONT MEET REQUIREMENTS SAY cancle OR LEAVE JUST LEAVE WITHOUT SAYING ANYTHING YOU CAN ALSO SAY CANCEL ANYTIME""")
+""")
         def check(msg):
             return not msg.guild and msg.author == ctx.author
         try:
@@ -43,23 +42,17 @@ Good luck!
                 price = await self.bot.wait_for('message', check=check, timeout=120)
             except asyncio.TimeoutError:
                 await ctx.author.send("Timed out")
-            if price.content == 'cancel':
-                return
             else:
                 await ctx.author.send("Why do you want to allie with us? how will reserve tech be benifitted by forming a alliance with you?")
                 try:
                     note = await self.bot.wait_for('message', check=check, timeout=120)
                 except asyncio.TimeoutError:
                     await ctx.author.send("Timed out")
-                if note.content == 'cancel':
-                    return
                 else:
                     await ctx.author.send("Describe your group in detail")
                     try:
                         Image = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
-                        await ctx.author.send("Timed out")
-                    if Image.content == 'cancel':
                         return
                     else:
                         await ctx.author.send("On a scale of 1 to 10, how good is your group? (Your own opinion, be honest)")
@@ -67,8 +60,6 @@ Good luck!
                             rating = await self.bot.wait_for('message', check=check, timeout=120)
                         except asyncio.TimeoutError:
                             await ctx.author.send("Timed out")
-                        if rating.content == 'cancel':
-                            return
                         else:
                             await ctx.author.send('DONE!')
 
