@@ -48,13 +48,17 @@ class Help(commands.Cog):
         embed2.add_field(name = "dadjokes" , value = "gives a dad joke" , inline=False)
         embed2.add_field(name="reverse" , value="reverses the text" , inline=False)
         embed.add_field(name = "mb" , value="membercount" , inline=False)
-        
+        embed.add_field(name = 'check' , value="checks if user name is avaiable" , inline=False)
+        embed.add_field(name = 'allie' , value="apply for allie" , inline=False)
+        embed.set_footer(text=f"all commands have . as prefix")
+        embed2.set_footer(text=f"all commands have . as prefix")
+        embed3.set_footer(text=f"all commands have . as prefix")
+        embed4.set_footer(text=f"all commands have . as prefix")
 
         await ctx.author.send(embed=embed)
         await ctx.author.send(embed=embed2)
         await ctx.author.send(embed=embed3)
         await ctx.author.send(embed=embed4)
         await ctx.send("we dmed you")
-
 def setup(bot):
     bot.add_cog(Help(bot))

@@ -1,4 +1,5 @@
 dadjokes==1.3
-discord.py==1.3.3
 python_box==4.2.3
-discord==1.0.1
+robloxpy==0.0.99
+emoji==0.5.4
+requests==2.23.0

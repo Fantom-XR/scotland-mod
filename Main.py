@@ -100,7 +100,7 @@ async def new(ctx,*, reason=None):
     ctx.guild.me: discord.PermissionOverwrite(read_messages=True),
     ctx.guild.get_role(715460330716790795): discord.PermissionOverwrite(read_messages=True),
     ctx.author : discord.PermissionOverwrite(send_messages=True)}
-    cat = ctx.guild.get_channel(724251967328747590)
+    cat = ctx.guild.get_channel(727879237607882836)
     car = (f"{ctx.author}'s ticket")
     channel = await cat.create_text_channel(name=car,overwrites=overwrites, reason=reason, option=None,topic=reason)
     await channel.send(f"hey, {ctx.author.mention} this is your ticket please wait atleast 8 hours till someone replys and do not ping if no one has seen the ticket yet")
@@ -108,7 +108,7 @@ async def new(ctx,*, reason=None):
 @tasks.loop(seconds = 600)
 async def member():
     name1 = (f"Member Count : {member.guild.member_count}")
-    chan = member.guild.get_channel(678552816117088290)
+    chan = member.guild.get_channel(726053858643673198)
     await chan.edit(name=name1)
 
 @bot.command()
@@ -147,6 +147,7 @@ bot.load_extension("COgs.sell")
 bot.load_extension("COgs.fun")
 bot.load_extension("COgs.moderaion")
 bot.load_extension("COgs.apply")
-bot.load_extension("COgs.verify")
+#bot.load_extension("COgs.verify")
+bot.load_extension("COgs.robloxstuff")
 
 bot.run("NjgxNTM3NTc0NTkzODg4MzM2.XucL2A.Q0wkpqwo8cZW7vT-1GDdBx5HFIM")
