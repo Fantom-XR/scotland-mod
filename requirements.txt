@@ -3,3 +3,4 @@ python_box==4.2.3
 robloxpy==0.0.99
 emoji==0.5.4
 requests==2.23.0
+discord.py==1.4.0
