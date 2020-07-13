@@ -99,7 +99,7 @@ async def new(ctx,*, reason=None):
     ctx.guild.default_role: discord.PermissionOverwrite(read_messages=False),
     ctx.guild.me: discord.PermissionOverwrite(read_messages=True),
     ctx.guild.get_role(715460330716790795): discord.PermissionOverwrite(read_messages=True),
-    ctx.author : discord.PermissionOverwrite(send_messages=True)}
+    ctx.author : discord.PermissionOverwrite(send_messages=True,read_messages=True)}
     cat = ctx.guild.get_channel(727879237607882836)
     car = (f"{ctx.author}'s ticket")
     channel = await cat.create_text_channel(name=car,overwrites=overwrites, reason=reason, option=None,topic=reason)
