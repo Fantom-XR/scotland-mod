@@ -22,7 +22,6 @@ class Help(commands.Cog):
 
         embed.add_field(name = "Help", value="Shows this message", inline=False)
         embed.add_field(name = "Ping", value="Gives ping of the bot", inline=False)
-        embed.add_field(name = "New", value="Opens a ticket (Note: you can also dm ticket bot)", inline=True)
         embed.add_field(name = "Hub", value="Gives you link to hub", inline=False)
         embed.add_field(name = "Group ", value="Gives you link to the group", inline=False)
         embed2.add_field(name = "8ball", value="Its a 8ball you know", inline=False)
