@@ -120,11 +120,6 @@ async def suggest_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
         await ctx.send(f"Hey! you need to wait {(int(error.retry_after/60))} mins before using it again!")
 
-@new.error
-async def suggest_error(ctx, error):
-    if isinstance(error, commands.CommandOnCooldown):
-        await ctx.send(f"Hey! you need to wait {(int(error.retry_after/60))} mins before using it again! ")
-
 bot.load_extension("COgs.help")
 bot.load_extension("COgs.sell")
 bot.load_extension("COgs.fun")
