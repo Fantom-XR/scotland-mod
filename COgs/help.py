@@ -59,6 +59,6 @@ class Help(commands.Cog):
         await ctx.author.send(embed=embed2)
         await ctx.author.send(embed=embed3)
         await ctx.author.send(embed=embed4)
-        await ctx.send("we dmed you")
+        await ctx.send("We have sent you a DM.")
 def setup(bot):
     bot.add_cog(Help(bot))
