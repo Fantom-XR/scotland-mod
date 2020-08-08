@@ -88,23 +88,6 @@ async def _ball(ctx):
     await ctx.send(random.choice(["yes", "no", "maybe", "ask person above you", "why asking me you bully", "who knows?", "im busy talk later", "no u",]))'''
 
 
-@bot.command()
-@commands.guild_only()
-@commands.cooldown(1,3600,BucketType.member)
-async def new(ctx,*, reason=None):
-    """|| Makes a ticket (Note:you can also dm ticket bot!) """
-    #role = ctx.guild.get_role(704326484558348379)
-    #role.send(f"{ctx.author.mention} has made a ticket for the reason {reason} please check it if not yet")
-    overwrites = {
-    ctx.guild.default_role: discord.PermissionOverwrite(read_messages=False),
-    ctx.guild.me: discord.PermissionOverwrite(read_messages=True),
-    ctx.guild.get_role(715460330716790795): discord.PermissionOverwrite(read_messages=True),
-    ctx.author : discord.PermissionOverwrite(send_messages=True,read_messages=True)}
-    cat = ctx.guild.get_channel(727879237607882836)
-    car = (f"{ctx.author}'s ticket")
-    channel = await cat.create_text_channel(name=car,overwrites=overwrites, reason=reason, option=None,topic=reason)
-    await channel.send(f"hey, {ctx.author.mention} this is your ticket please wait atleast 8 hours till someone replys and do not ping if no one has seen the ticket yet")
-
 @tasks.loop(seconds = 600)
 async def member():
     name1 = (f"Member Count : {member.guild.member_count}")
