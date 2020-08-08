@@ -65,13 +65,13 @@ async def suggest(ctx, *, message=None):
     
 
     await ctx.message.delete()
-    await ctx.send(f"{ctx.author.mention} your suggestion has been send!")
+    await ctx.send(f"{ctx.author.mention} your suggestion has been sent! Other users can now see your suggestion, if you would like your suggestion removed please contact a High Rank.")
     await channel.send(embed =embed)
 
 
 @bot.command()
 async def hub(ctx):
-    """|| gives you link to the hub!"""
+    """|| gives you link to the Hub!"""
     await ctx.send("https://www.roblox.com/games/5199442577/Hub")
 
 #link to group
