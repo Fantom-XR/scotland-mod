@@ -122,7 +122,6 @@ async def suggest_error(ctx, error):
 
 bot.load_extension("COgs.help")
 bot.load_extension("COgs.sell")
-bot.load_extension("COgs.fun")
 bot.load_extension("COgs.moderaion")
 bot.load_extension("COgs.apply")
 #bot.load_extension("COgs.verify")
