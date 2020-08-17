@@ -126,4 +126,4 @@ bot.load_extension("COgs.moderaion")
 bot.load_extension("COgs.apply")
 #bot.load_extension("COgs.verify")
 
-bot.run("NjgxNTM3NTc0NTkzODg4MzM2.XucL2A.Q0wkpqwo8cZW7vT-1GDdBx5HFIM")
+bot.run("NjgxNTM3NTc0NTkzODg4MzM2.XlP5VA.dOqdOph1VtS4NuDQ8aKDeVWoiTA")
