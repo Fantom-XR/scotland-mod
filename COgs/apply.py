@@ -10,7 +10,7 @@ class marketplace(commands.Cog):
     @commands.command()
     @commands.cooldown(1,3600,BucketType.member)
     async def ally(self, ctx):
-        await ctx.send('check your dm')
+        await ctx.send('Check for a DM by <@681537574593888336>')
         await ctx.author.send("""**RESERVE TECH - ALLY APPLICATION**
         
 Reserve Tech Ally Benefits:
@@ -77,7 +77,7 @@ Requirements:
         channel = self.bot.get_channel(748555001072451654)
         await channel.send(embed=embed)
 
-    @allie.error
+    @aally.error
     async def sell_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
             await ctx.send(f"You have recently requested an ally application. Wait {(int(error.retry_after/60))} minutes to retry.")
