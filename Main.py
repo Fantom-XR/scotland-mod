@@ -20,12 +20,12 @@ async def ping(ctx):
 @bot.event
 async def on_member_join(member):
     chan1 = member.guild.get_channel(724211449760710696)
-    await chan1.send(f"welcone {member.mention}, There are {member.guild.member_count} members in the server!")
+    await chan1.send(f"Welcome {member.mention}, There are now {member.guild.member_count} members in the server!")
 
 @bot.event
 async def on_member_remove(member):
     chan = member.guild.get_channel(724211449760710696)
-    await chan.send(f"{member.mention} decided to leave Reserve Tech :( , There are {member.guild.member_count} members in the server now.")
+    await chan.send(f"{member.mention} has left Reserve Tech, there are now {member.guild.member_count} members.")
 
 @bot.command()
 @commands.guild_only()
