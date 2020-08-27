@@ -10,8 +10,8 @@ class marketplace(commands.Cog):
     @commands.command()
     @commands.cooldown(1,3600,BucketType.member)
     async def sell(self, ctx):
-        await ctx.send('check your dm')
-        await ctx.author.send("what product are you selling?")
+        await ctx.send('Look for a DM by <@681537574593888336>')
+        await ctx.author.send("What product is being sold?")
         def check(msg):
             return not msg.guild and msg.author == ctx.author
         try:
@@ -19,19 +19,19 @@ class marketplace(commands.Cog):
         except asyncio.TimeoutError:
             await ctx.author.send("Timed out")
         else:
-            await ctx.author.send("Whats the price?")
+            await ctx.author.send("How much are you selling this for?")
             try:
                 price = await self.bot.wait_for('message', check=check, timeout=120)
             except asyncio.TimeoutError:
                 await ctx.author.send("Timed out")
             else:
-                await ctx.author.send("Any note?")
+                await ctx.author.send("What features does this product have?")
                 try:
                     note = await self.bot.wait_for('message', check=check, timeout=120)
                 except asyncio.TimeoutError:
                     await ctx.author.send("Timed out")
                 else:
-                    await ctx.author.send("please provide a image (no links) ")
+                    await ctx.author.send("Please provide an image, not a link.")
                     try:
                         Image = await self.bot.wait_for('message', check=check, timeout=120)
                         attachment = Image.attachments[0]
@@ -39,14 +39,14 @@ class marketplace(commands.Cog):
                     except asyncio.TimeoutError:
                         await ctx.author.send("Timed out")
                     else:
-                        await ctx.author.send("DONE!")
+                        await ctx.author.send("Your advert has been published! Look in <#724241250764455957>")
 
         embed = discord.Embed(timestamp=ctx.message.created_at)
-        embed.set_author(name="a new item")
-        embed.add_field(name="Product:", value=f"{item.content}")
-        embed.add_field(name="sold by:", value=f"{ctx.author.mention}")
-        embed.add_field(name="Price:", value=f"{price.content}")
-        embed.add_field(name="Note:", value=f"{note.content}")
+        embed.set_author(name="Product Advertisement")
+        embed.add_field(name="Product:", value=f"{item.content}", inline=False)
+        embed.add_field(name="sold by:", value=f"{ctx.author.mention}", inline=False)
+        embed.add_field(name="Price:", value=f"{price.content}", inline=False)
+        embed.add_field(name="Features:", value=f"{note.content}", inline=False)
         embed.set_image(url=attachment_url)
         channel = self.bot.get_channel(724241250764455957)
         await channel.send(embed=embed)
