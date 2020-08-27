@@ -9,7 +9,7 @@ class marketplace(commands.Cog):
     
     @commands.command()
     @commands.cooldown(1,3600,BucketType.member)
-    async def allie(self, ctx):
+    async def ally(self, ctx):
         await ctx.send('check your dm')
         await ctx.author.send("""**RESERVE TECH - ALLY APPLICATION**
         
