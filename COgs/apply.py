@@ -11,20 +11,23 @@ class marketplace(commands.Cog):
     @commands.cooldown(1,3600,BucketType.member)
     async def allie(self, ctx):
         await ctx.send('check your dm')
-        await ctx.author.send("""RESERVE TECH - ALLIE APPLICATION
-What are the benefits of becoming our allie?
-- Able to announce events in our events channel
-- Have your name listed in our partners channel
-- Occasional shout-outs
-- And more!
-Requirements
-- You must not be involved in any drama
-- Must have atleat 100 members in discord
-- You must have a decent or better reputation
-- Use full grammar and punctuation
+        await ctx.author.send("""RESERVE TECH - ALLY APPLICATION
+Reserve Tech Ally Benefits:
+- 20% off all products
+- Have your group listed in <#745722260597506128>
+- Ability to post in <#746744255698960475>
+- Private Partner Channel
+
+Requirements:
+- Your group must free from PR Scandals
+- You must have at least 150 group members
+- Your reputation must be clean
+- When applying, use full punctuation & grammar
 - Answer questions in detail and to the best of your ability
-- Must have 50+ members 
-Good luck!
+- Must be 13+ to apply
+- Must have an active community
+
+*Respond to this message to continue, or say "cancel".*
 """)
         def check(msg):
             return not msg.guild and msg.author == ctx.author
@@ -37,38 +40,38 @@ Good luck!
             return
 
         else:
-            await ctx.author.send("What is your Discord Username and tag and also mention your roblox name.")
+            await ctx.author.send("Please state your Discord Username id eg. <@[Your ID here]> and your Roblox Username")
             try:
                 price = await self.bot.wait_for('message', check=check, timeout=120)
             except asyncio.TimeoutError:
                 await ctx.author.send("Timed out")
             else:
-                await ctx.author.send("Why do you want to allie with us? how will reserve tech be benifitted by forming a alliance with you?")
+                await ctx.author.send("Why do you want to ally with Reserve Tech & how will this partnership benefit us?")
                 try:
                     note = await self.bot.wait_for('message', check=check, timeout=120)
                 except asyncio.TimeoutError:
                     await ctx.author.send("Timed out")
                 else:
-                    await ctx.author.send("Describe your group in detail")
+                    await ctx.author.send("What is your group name and invite link?")
                     try:
                         Image = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
                         return
                     else:
-                        await ctx.author.send("On a scale of 1 to 10, how good is your group? (Your own opinion, be honest)")
+                        await ctx.author.send("How long has your group been active for?")
                         try:
                             rating = await self.bot.wait_for('message', check=check, timeout=120)
                         except asyncio.TimeoutError:
                             await ctx.author.send("Timed out")
                         else:
-                            await ctx.author.send('DONE!')
+                            await ctx.author.send('Your application has been submit. [ Phase 1/3 ]')
 
         embed = discord.Embed(timestamp=ctx.message.created_at)
-        embed.set_author(name=f"allie form by {ctx.author.mention}")
-        embed.add_field(name="name", value=price.content)
-        embed.add_field(name="why allie", value=note.content)
-        embed.add_field(name="detail" , value =f"{Image.content}")
-        embed.add_field(name="own opinion" , value =f"{rating.content}")
+        embed.set_author(name=f"Ally form by {ctx.author.mention}")
+        embed.add_field(name="Name:", value=price.content)
+        embed.add_field(name="Reasoning for Ally Request:", value=note.content)
+        embed.add_field(name="Group Name & Invite:" , value =f"{Image.content}")
+        embed.add_field(name="Group Active Duration:" , value =f"{rating.content}")
         embed.set_footer(text=f"Send by {ctx.author}")
         channel = self.bot.get_channel(748555001072451654)
         await channel.send(embed=embed)
@@ -76,7 +79,7 @@ Good luck!
     @allie.error
     async def sell_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
-            await ctx.send(f"Hey! you need to wait {(int(error.retry_after/60))} mins before using it again!")
+            await ctx.send(f"Hey! you need to wait {(int(error.retry_after/1440))} mins before using it again!")
 
 
 def setup(bot):
