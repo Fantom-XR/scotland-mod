@@ -25,7 +25,7 @@ async def on_member_join(member):
 @bot.event
 async def on_member_remove(member):
     chan = member.guild.get_channel(724211449760710696)
-    await chan.send(f"**🚪🚶 Member Left:** {member.mention}, There are now {member.guild.member_count} members.")
+    await chan.send(f"**🚶 Member Left:** {member.mention}, There are now {member.guild.member_count} members.")
 
 @bot.command()
 @commands.guild_only()
