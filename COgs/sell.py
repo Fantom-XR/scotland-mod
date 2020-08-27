@@ -113,7 +113,7 @@ class marketplace(commands.Cog):
                 except asyncio.TimeoutError:
                     await ctx.author.send("time out!")
                 else:
-                    await ctx.author.send("Provide an image, not a file.")
+                    await ctx.author.send("Provide an image, not a link.")
                     try:
                         Image = await self.bot.wait_for('message', check=check, timeout=120)
                         attachment = Image.attachments[0]
