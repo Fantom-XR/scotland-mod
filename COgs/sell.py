@@ -101,13 +101,13 @@ class marketplace(commands.Cog):
         except asyncio.TimeoutError:
             await ctx.author.send("Timed out")
         else:
-            await ctx.author.send("Give a description on what your group does")
+            await ctx.author.send("Give a description on what your group does.")
             try:
                 notes = await self.bot.wait_for('message', check=check, timeout=120)
             except asyncio.TimeoutError:
                 await ctx.author.send("Timed out")
             else:
-                await ctx.author.send("Provide link(s) related to your group")
+                await ctx.author.send("Provide link(s) related to your group.")
                 try:
                     price = await self.bot.wait_for('message', check=check, timeout=120)
                 except asyncio.TimeoutError:
@@ -139,17 +139,17 @@ class marketplace(commands.Cog):
     @sell.error
     async def sell_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
-            await ctx.send(f"This command is time-locked. Please wait {(int(error.retry_after/60))} minutess before retrying.")
+            await ctx.send(f"❌ This command is time-locked. Please wait {(int(error.retry_after/60))} minutes before retrying.")
 
     @hire.error
     async def sell_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
-            await ctx.send(f"This command is time-locked. Please wait {(int(error.retry_after/60))} minutess before retrying.")
+            await ctx.send(f"❌ This command is time-locked. Please wait {(int(error.retry_after/60))} minutes before retrying.")
 
     @ad.error
     async def sell_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
-            await ctx.send(f"This command is time-locked. Please wait {(int(error.retry_after/60))} minutess before retrying.")
+            await ctx.send(f"❌ This command is time-locked. Please wait {(int(error.retry_after/60))} minutes before retrying.")
 
 def setup(bot):
     bot.add_cog(marketplace(bot))
