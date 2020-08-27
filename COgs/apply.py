@@ -80,7 +80,7 @@ Requirements:
     @allie.error
     async def sell_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
-            await ctx.send(f"You have recently requested an ally application. Wait {(int(error.retry_after/1))} minutes to retry.")
+            await ctx.send(f"You have recently requested an ally application. Wait {(int(error.retry_after/60))} minutes to retry.")
 
 
 def setup(bot):
