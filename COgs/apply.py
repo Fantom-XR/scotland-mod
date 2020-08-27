@@ -70,7 +70,7 @@ Good luck!
         embed.add_field(name="detail" , value =f"{Image.content}")
         embed.add_field(name="own opinion" , value =f"{rating.content}")
         embed.set_footer(text=f"Send by {ctx.author}")
-        channel = self.bot.get_channel(725665272622481448)
+        channel = self.bot.get_channel(748555001072451654)
         await channel.send(embed=embed)
 
     @allie.error
