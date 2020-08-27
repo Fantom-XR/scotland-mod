@@ -18,6 +18,7 @@ Reserve Tech Ally Benefits:
 - Have your group listed in our partner channel
 - Ability to post in partner events
 - Private Partner Channel
+- Access to partner events
 
 Requirements:
 - Your group must free from PR Scandals
