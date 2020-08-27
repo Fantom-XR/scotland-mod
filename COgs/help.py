@@ -22,7 +22,7 @@ class Help(commands.Cog):
         embed.add_field(name = ".help", value="Shows a list of all commands.", inline=False)
         embed.add_field(name = ".ping", value="Test our server speed.", inline=False)
         embed.add_field(name = ".hub", value="Gives a link to our purchase hub.", inline=False)
-        embed.add_field(name = ".group ", value="Gives a link to our Roblox Group." inline=False)
+        embed.add_field(name = ".group ", value="Gives a link to our Roblox Group.", inline=False)
         embed.add_field(name = ".suggest", value=".Suggest [ Suggestion Here ]", inline=False)
         embed.add_field(name = ".info", value=".info [ @User ]", inline=False)
         embed3.add_field(name= ".ad" , value = "Publish an advert to <#724241221395939330>", inline=False)
