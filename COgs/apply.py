@@ -11,11 +11,12 @@ class marketplace(commands.Cog):
     @commands.cooldown(1,3600,BucketType.member)
     async def allie(self, ctx):
         await ctx.send('check your dm')
-        await ctx.author.send("""RESERVE TECH - ALLY APPLICATION
+        await ctx.author.send("""**RESERVE TECH - ALLY APPLICATION**
+        
 Reserve Tech Ally Benefits:
 - 20% off all products
-- Have your group listed in <#745722260597506128>
-- Ability to post in <#746744255698960475>
+- Have your group listed in our partner channel
+- Ability to post in partner events
 - Private Partner Channel
 
 Requirements:
@@ -67,19 +68,19 @@ Requirements:
                             await ctx.author.send('Your application has been submit. [ Phase 1/3 ]')
 
         embed = discord.Embed(timestamp=ctx.message.created_at)
-        embed.set_author(name=f"Ally form by {ctx.author.mention}")
+        embed.set_author(name=f"New Ally Request")
         embed.add_field(name="Name:", value=price.content)
         embed.add_field(name="Reasoning for Ally Request:", value=note.content)
         embed.add_field(name="Group Name & Invite:" , value =f"{Image.content}")
         embed.add_field(name="Group Active Duration:" , value =f"{rating.content}")
-        embed.set_footer(text=f"Send by {ctx.author}")
+        embed.set_footer(text=f"Sent by {ctx.author}")
         channel = self.bot.get_channel(748555001072451654)
         await channel.send(embed=embed)
 
     @allie.error
     async def sell_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
-            await ctx.send(f"You have recently requested an ally application. Wait {(int(error.retry_after/60))} to retry.")
+            await ctx.send(f"You have recently requested an ally application. Wait {(int(error.retry_after/60))} minutes to retry.")
 
 
 def setup(bot):
