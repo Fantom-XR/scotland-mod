@@ -43,6 +43,6 @@ class Help(commands.Cog):
         await ctx.author.send(embed=embed)
         await ctx.author.send(embed=embed2)
         await ctx.author.send(embed=embed3)
-        await ctx.send("We have sent you a DM.")
+        await ctx.send("Check for a DM by <@681537574593888336>")
 def setup(bot):
     bot.add_cog(Help(bot))
