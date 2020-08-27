@@ -42,9 +42,9 @@ class marketplace(commands.Cog):
                         await ctx.author.send("Your advert has been published! Look in <#724241250764455957>")
 
         embed = discord.Embed(timestamp=ctx.message.created_at)
-        embed.set_author(name="Product Advertisement")
+        embed.set_author(name="🛎️ Product Advertisement")
         embed.add_field(name="Product:", value=f"{item.content}", inline=False)
-        embed.add_field(name="sold by:", value=f"{ctx.author.mention}", inline=False)
+        embed.add_field(name="Sold by:", value=f"{ctx.author.mention}", inline=False)
         embed.add_field(name="Price:", value=f"{price.content}", inline=False)
         embed.add_field(name="Features:", value=f"{note.content}", inline=False)
         embed.set_image(url=attachment_url)
@@ -54,8 +54,8 @@ class marketplace(commands.Cog):
     @commands.command()
     @commands.cooldown(1,3600,BucketType.member)
     async def hire(self, ctx):
-        await ctx.send('check your dm')
-        await ctx.author.send("Whom are you hiring?")
+        await ctx.send('Look for a DM by <@681537574593888336>')
+        await ctx.author.send("Who are you trying to hire? [ Builder, Scripter etc. ]")
         def check(msg):
             return not msg.guild and msg.author == ctx.author
         try:
@@ -63,27 +63,27 @@ class marketplace(commands.Cog):
         except asyncio.TimeoutError:
             await ctx.author.send("Timed out")
         else:
-            await ctx.author.send("anynotes?")
+            await ctx.author.send("Describe the work that needs to be done.")
             try:
                 notes = await self.bot.wait_for('message', check=check, timeout=120)
             except asyncio.TimeoutError:
                 await ctx.author.send("Timed out")
             else:
-                await ctx.author.send("how much are you paying")
+                await ctx.author.send("How much are you willing to pay?")
                 try:
                     price = await self.bot.wait_for('message', check=check, timeout=120)
                 except asyncio.TimeoutError:
                     await ctx.author.send("time out!")
                 else:
-                    await ctx.author.send("done!")
+                    await ctx.author.send("Your advert has been published! Look in <#724241277826105374>")
                 
 
         embed = discord.Embed(timestamp=ctx.message.created_at)
-        embed.set_author(name="**Hiring**")
-        embed.add_field(name="Name:", value=f"{ctx.author.mention}")
-        embed.add_field(name="Hiring:", value=hire.content)
-        embed.add_field(name="payment:", value=price.content)
-        embed.add_field(name="Notes:", value=notes.content)
+        embed.set_author(name="🧳 Hiring")
+        embed.add_field(name="Name:", value=f"{ctx.author.mention}", inline=False)
+        embed.add_field(name="Looking for a:", value=hire.content, inline=False)
+        embed.add_field(name="Payment:", value=price.content, inline=False)
+        embed.add_field(name="Work needed:", value=notes.content, inline=False)
         channel = self.bot.get_channel(724241277826105374)
         await channel.send(embed=embed)
 
@@ -92,8 +92,8 @@ class marketplace(commands.Cog):
     @commands.command()
     @commands.cooldown(1,3600,BucketType.member)
     async def ad(self, ctx):
-        await ctx.send('check your dm')
-        await ctx.author.send("Whats the name of your company")
+        await ctx.send('Look for a DM by <@681537574593888336>')
+        await ctx.author.send("What is the name of your business?")
         def check(msg):
             return not msg.guild and msg.author == ctx.author
         try:
@@ -101,19 +101,19 @@ class marketplace(commands.Cog):
         except asyncio.TimeoutError:
             await ctx.author.send("Timed out")
         else:
-            await ctx.author.send("please give a breif discription")
+            await ctx.author.send("Give a description on what your group does")
             try:
                 notes = await self.bot.wait_for('message', check=check, timeout=120)
             except asyncio.TimeoutError:
                 await ctx.author.send("Timed out")
             else:
-                await ctx.author.send("please provide a link")
+                await ctx.author.send("Provide link(s) related to your group")
                 try:
                     price = await self.bot.wait_for('message', check=check, timeout=120)
                 except asyncio.TimeoutError:
                     await ctx.author.send("time out!")
                 else:
-                    await ctx.author.send("please provide a image (no links) ")
+                    await ctx.author.send("Provide an image, not a file.")
                     try:
                         Image = await self.bot.wait_for('message', check=check, timeout=120)
                         attachment = Image.attachments[0]
@@ -121,16 +121,16 @@ class marketplace(commands.Cog):
                     except asyncio.TimeoutError:
                         await ctx.author.send("Timed out")
                     else:
-                        await ctx.author.send("DONE!")
+                        await ctx.author.send("Your advert has been published! Look in <#724241221395939330>")
                 
         
         embed = discord.Embed(timestamp=ctx.message.created_at)
-        embed.set_author(name=f"advertisement")
-        embed.add_field(name="name", value=name.content)
-        embed.add_field(name="Description", value=notes.content)
-        embed.add_field(name="link" , value =f"{price.content}")
+        embed.set_author(name=f"🖥️ Advertisement")
+        embed.add_field(name="Group Name", value=name.content, inline=False)
+        embed.add_field(name="Description", value=notes.content, inline=False)
+        embed.add_field(name="Link(s)" , value =f"{price.content}", inline=False)
         embed.set_image(url=attachment_url)
-        embed.set_footer(text=f"Send by {ctx.author}")
+        embed.set_footer(text=f"Sent by {ctx.author}")
         channel = self.bot.get_channel(724241221395939330)
         await channel.send(embed=embed)
         
@@ -139,17 +139,17 @@ class marketplace(commands.Cog):
     @sell.error
     async def sell_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
-            await ctx.send(f"Hey! you need to wait {(int(error.retry_after/60))} mins before using it again!")
+            await ctx.send(f"This command is time-locked. Please wait {(int(error.retry_after/60))} minutess before retrying.")
 
     @hire.error
     async def sell_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
-            await ctx.send(f"Hey! you need to wait {(int(error.retry_after/60))} mins before using it again!")
+            await ctx.send(f"This command is time-locked. Please wait {(int(error.retry_after/60))} minutess before retrying.")
 
     @ad.error
     async def sell_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
-            await ctx.send(f"Hey! you need to wait {(int(error.retry_after/60))} mins before using it again!")
+            await ctx.send(f"This command is time-locked. Please wait {(int(error.retry_after/60))} minutess before retrying.")
 
 def setup(bot):
     bot.add_cog(marketplace(bot))
