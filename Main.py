@@ -49,7 +49,7 @@ async def suggest(ctx, *, message=None):
     || Gives a suggestion in suggestion channel
     """
     if not message:
-        await ctx.send("Please Introduce a suggestion :/")
+        await ctx.send("Please Introduce a suggestion :/.")
         return
  
     channel = bot.get_channel(724241618516836383)
