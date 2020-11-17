@@ -26,7 +26,7 @@ class Help(commands.Cog):
         embed.add_field(name = ".suggest", value=".Suggest [ Suggestion Here ]", inline=False)
         embed.add_field(name = ".info", value=".info [ @User ]", inline=False)
         embed3.add_field(name= ".ad" , value = "Publish an advert to <#724241221395939330>", inline=False)
-        embed3.add_field(name = ".sell" , value = "Publish a selling advert to <#724241250764455957>", inline=False)
+        #embed3.add_field(name = ".sell" , value = "Publish a selling advert to <#724241250764455957>", inline=False)
         embed3.add_field(name = ".hire" , value = "Publish a hiring advert to <#724241277826105374>" , inline=False)
         embed2.add_field(name = ".ban" , value = ".ban [ User - Do not @ ] [ Reason(s) ]", inline=False)
         embed2.add_field(name = ".unban" , value = ".unban [ User - Do not @ ]", inline=False)
