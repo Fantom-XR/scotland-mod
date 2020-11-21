@@ -20,7 +20,8 @@ async def ping(ctx):
 @bot.event
 async def on_member_join(member):
     chan1 = member.guild.get_channel(724211449760710696)
-    await chan1.send(f"**👋 New Member:** {member.mention}, There are now {member.guild.member_count} members in the server.") ('/rtw.jpg'))
+    await chan1.send(f"**👋 New Member:** {member.mention}, There are now {member.guild.member_count} members in the server.")
+    await chan1.send(f"https://images-ext-2.discordapp.net/external/5G-brBfC9GADnlcviLP0m9bF_V7M8bj2oKSfN6ufcMk/https/media.discordapp.net/attachments/724206682321846312/734300288915079238/Welcome_to_Reserve_Tech_bot_post_ya.jpg")
 
 @bot.event
 async def on_member_remove(member):
