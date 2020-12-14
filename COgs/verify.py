@@ -17,7 +17,7 @@ class veirfy(commands.Cog):
     
 
     @commands.command()
-#    @commands.cooldown(1,3600,BucketType.member)
+   @commands.cooldown(1,3600,BucketType.member)
     async def veirfy(self, ctx):
         await ctx.send('check your dm')
         await ctx.author.send("wot your username?")
@@ -49,7 +49,7 @@ def setup(bot):
 
 
 
-#api = requests.get(f'https://users.roblox.com/v1/users/{user}')
+api = requests.get(f'https://users.roblox.com/v1/users/{user}')
 
 
-#print(emoji.emojize(api.json()['description']))
+print(emoji.emojize(api.json()['description']))
