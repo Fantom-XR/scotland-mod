@@ -21,6 +21,7 @@ async def ping(ctx):
 async def on_member_join(member):
     chan1 = member.guild.get_channel(790682444252315668)
     await chan1.send(f"**Welcome to Avenir!** \n Hello, {member.mention}, welcome to Avenir! We are now at 198 members. \n Please view #information to learn more about us. Before you gain full access to our server, you'll need to verify in <#790682463126945792>. Instructions for verification can be found in <#790682444252315668>.")
+     await chan1.send(f"https://images-ext-2.discordapp.net/external/B2aoic3TKLYTfiq1aOGYokjBQKVHWLggSIl6FvSduBs/https/media.discordapp.net/attachments/788733640892743690/790682044602122290/Welcome_To_Avenir.png")
 
 @bot.event
 async def on_member_remove(member):
