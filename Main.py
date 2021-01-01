@@ -19,13 +19,13 @@ async def ping(ctx):
 
 @bot.event
 async def on_member_join(member):
-    chan1 = member.guild.get_channel(724211449760710696)
+    chan1 = member.guild.get_channel(794521047558520852)
     await chan1.send(f"**👋 New Member:** {member.mention}, There are now {member.guild.member_count} members in the server.")
     await chan1.send(f"https://images-ext-2.discordapp.net/external/5G-brBfC9GADnlcviLP0m9bF_V7M8bj2oKSfN6ufcMk/https/media.discordapp.net/attachments/724206682321846312/734300288915079238/Welcome_to_Reserve_Tech_bot_post_ya.jpg")
 
 @bot.event
 async def on_member_remove(member):
-    chan = member.guild.get_channel(724211449760710696)
+    chan = member.guild.get_channel(794521047558520852)
     await chan.send(f"**🚶 Member Left:** {member.mention}, There are now {member.guild.member_count} members.")
 
 @bot.command()
@@ -53,7 +53,7 @@ async def suggest(ctx, *, message=None):
         await ctx.send("Please Introduce a suggestion :/.")
         return
  
-    channel = bot.get_channel(724241618516836383)
+    channel = bot.get_channel(788520182549053472)
     message = message
  
     embed = discord.Embed(timestamp=ctx.message.created_at)
@@ -80,7 +80,7 @@ async def hub(ctx):
 @bot.command()
 async def group(ctx):
     """|| Gives you link the the group!"""
-    await ctx.send("https://web.roblox.com/groups/5648445/Reserve-Tech#!/aboutemoji_2")
+    await ctx.send("https://www.roblox.com/games/6153453289/AV-Hub")
 
 
 '''@bot.command(name="8ball")
@@ -92,7 +92,7 @@ async def _ball(ctx):
 @tasks.loop(seconds = 600)
 async def member():
     name1 = (f"Member Count : {member.guild.member_count}")
-    chan = member.guild.get_channel(726053858643673198)
+    chan = member.guild.get_channel(794521047558520852)
     await chan.edit(name=name1)
 
 @bot.command()
@@ -127,4 +127,4 @@ bot.load_extension("COgs.moderaion")
 bot.load_extension("COgs.apply")
 #bot.load_extension("COgs.verify")
 
-bot.run("NjgxNTM3NTc0NTkzODg4MzM2.XlP5VA.JPqSC4sdV3L8Ra-QwU2aqmUosak")
+bot.run("Nzg4NTEwNzcxNTAzNjkzODU0.X9kj4Q.6Utl3reJ9iOTr9AQ7slrHMM8DQ8")
