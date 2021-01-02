@@ -10,24 +10,18 @@ class marketplace(commands.Cog):
     @commands.command()
     @commands.cooldown(1,3600,BucketType.member)
     async def ally(self, ctx):
-        await ctx.send('Check for a DM by <@681537574593888336>')
-        await ctx.author.send("""**RESERVE TECH - ALLY APPLICATION**
+        await ctx.send('Check for a DM by <@788510771503693854>')
+        await ctx.author.send("""**Avenir - STAFF APPLICATION**
         
-Reserve Tech Ally Benefits:
-- 20% off all products
-- Have your group listed in our partner channel
-- Ability to post in partner events
-- Private Partner Channel
-- Access to partner events
+Avenir Staff Benefits:
+- 20% off of products, don't just apply because of this please apply because you think you suit the job.
 
 Requirements:
-- Your group must free from PR Scandals
-- You must have at least 150 group members
-- Your reputation must be clean
-- When applying, use full punctuation & grammar
+- Your reputation must be clean.
+- When applying, use full punctuation & grammar.
 - Answer questions in detail and to the best of your ability
 - Must be 13+ to apply
-- Must have an active community
+- Must be active
 
 *Respond to this message to continue, or say "cancel".*
 """)
@@ -42,46 +36,70 @@ Requirements:
             return
 
         else:
-            await ctx.author.send("Please state your Discord Username id eg. <@[Your ID here]> and your Roblox Username")
+            await ctx.author.send("Please state Roblox Username")
             try:
-                price = await self.bot.wait_for('message', check=check, timeout=120)
+                name = await self.bot.wait_for('message', check=check, timeout=120)
             except asyncio.TimeoutError:
                 await ctx.author.send("Timed out")
             else:
-                await ctx.author.send("Why do you want to ally with Reserve Tech & how will this partnership benefit us?")
+                await ctx.author.send("Why do you want to become a member of staff at Avenir?")
                 try:
-                    note = await self.bot.wait_for('message', check=check, timeout=120)
+                    reason = await self.bot.wait_for('message', check=check, timeout=120)
                 except asyncio.TimeoutError:
                     await ctx.author.send("Timed out")
                 else:
-                    await ctx.author.send("What is your group name and invite link?")
+                    await ctx.author.send("How could you benefit Avenir if you became a staff member?")
                     try:
-                        Image = await self.bot.wait_for('message', check=check, timeout=120)
+                        benefit = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
                         return
                     else:
-                        await ctx.author.send("How long has your group been active for?")
+                        await ctx.author.send("How active are you?")
                         try:
                             rating = await self.bot.wait_for('message', check=check, timeout=120)
                         except asyncio.TimeoutError:
                             await ctx.author.send("Timed out")
                         else:
+                            
+                    await ctx.author.send("How active would you be if you became a member of staff here at Avenir?")
+                    try:
+                        srating = await self.bot.wait_for('message', check=check, timeout=120)
+                    except asyncio.TimeoutError:
+                        return
+                    else:
+                        
+                    await ctx.author.send("Do you unerstand that your application can be declined at any moment?")
+                    try:
+                        decline = await self.bot.wait_for('message', check=check, timeout=120)
+                    except asyncio.TimeoutError:
+                        return
+                    else:
+                        
+                    await ctx.author.send("Do you understand that you can be fired at any time and you will have to attend a training before you become a full staff member?")
+                    try:
+                        fire = await self.bot.wait_for('message', check=check, timeout=120)
+                    except asyncio.TimeoutError:
+                        return
+                    else:
                             await ctx.author.send('Your application has been submit. [ Phase 1/3 ]')
 
         embed = discord.Embed(timestamp=ctx.message.created_at)
-        embed.set_author(name=f"New Ally Request")
-        embed.add_field(name="Name:", value=price.content, inline=False)
-        embed.add_field(name="Reasoning for Ally Request:", value=note.content, inline=False)
-        embed.add_field(name="Group Name & Invite:" , value =f"{Image.content}", inline=False)
-        embed.add_field(name="Group Active Duration:" , value =f"{rating.content}", inline=False)
+        embed.set_author(name=f"New Staff Application")
+        embed.add_field(name="Roblox username:", value=name.content, inline=False)
+        embed.add_field(name="Reason for becoming staff:", value=reason.content, inline=False)
+        embed.add_field(name="How they could benefit:" , value=benefit.content}", inline=False)
+        embed.add_field(name="Activity before becoming staff:" , value =rating.content", inline=False)
+        embed.add_field(name="Activity when staff:" , value =srating.content", inline=False)
+        embed.add_field(name="Understanding of application declining:" , value =decline.content", inline=False)
+        embed.add_field(name="Understand of firing and attending training:" , value =fire.content", inline=False)
         embed.set_footer(text=f"Sent by {ctx.author}")
-        channel = self.bot.get_channel(748555001072451654)
+        channel = self.bot.get_channel(794962966788702218)
         await channel.send(embed=embed)
 
     @ally.error
     async def sell_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
-            await ctx.send(f"You have recently requested an ally application. Wait {(int(error.retry_after/60))} minutes to retry.")
+            await ctx.send(f"You have recently applied for staff. Wait {(int(error.retry_after/20160))} minutes to retry.")
 
 
 def setup(bot):
