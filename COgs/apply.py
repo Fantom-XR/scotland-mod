@@ -9,9 +9,9 @@ class marketplace(commands.Cog):
     
     @commands.command()
     @commands.cooldown(1,3600,BucketType.member)
-    async def ally(self, ctx):
+    async def apply(self, ctx):
         await ctx.send('Check for a DM by <@788510771503693854>')
-        await ctx.author.send("""**Avenir - STAFF APPLICATION**
+        await ctx.author.send("""**Avenir Staff Application**
         
 Avenir Staff Benefits:
 - 20% off of products, don't just apply because of this please apply because you think you suit the job.
@@ -36,60 +36,46 @@ Requirements:
             return
 
         else:
-            await ctx.author.send("Please state Roblox Username")
+            await ctx.author.send("Have you got any past experience?")
             try:
-                name = await self.bot.wait_for('message', check=check, timeout=120)
+                price = await self.bot.wait_for('message', check=check, timeout=120)
             except asyncio.TimeoutError:
                 await ctx.author.send("Timed out")
             else:
-                await ctx.author.send("Why do you want to become a member of staff at Avenir?")
+                await ctx.author.send("How can you benefit us?")
                 try:
-                    reason = await self.bot.wait_for('message', check=check, timeout=120)
+                    note = await self.bot.wait_for('message', check=check, timeout=120)
                 except asyncio.TimeoutError:
                     await ctx.author.send("Timed out")
                 else:
-                    await ctx.author.send("How could you benefit Avenir if you became a staff member?")
+                    await ctx.author.send("Do you know what to do as customer service? If so please explain.")
                     try:
-                        benefit = await self.bot.wait_for('message', check=check, timeout=120)
+                        idk = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
                         return
                     else:
-                        await ctx.author.send("How active will you be if you become staff here at Avenir?")
+                        await ctx.author.send("Do you agree to all of our rules and terms of services?")
                         try:
                             rating = await self.bot.wait_for('message', check=check, timeout=120)
                         except asyncio.TimeoutError:
                             await ctx.author.send("Timed out")
-                        else:      
-                    await ctx.author.send("Do you unerstand that your application can be declined at any moment?")
-                    try:
-                        decline = await self.bot.wait_for('message', check=check, timeout=120)
-                    except asyncio.TimeoutError:
-                        return
-                    else:
-                    await ctx.author.send("Do you understand that you can be fired at any time and you will have to attend a training before you become a full staff member?")
-                    try:
-                        fire = await self.bot.wait_for('message', check=check, timeout=120)
-                    except asyncio.TimeoutError:
-                        return
-                    else:
-                    await ctx.author.send('Your application has been submited.')
+                        else:
+                            await ctx.author.send('Your application has been submit. [ Phase 1/3 ]')
 
         embed = discord.Embed(timestamp=ctx.message.created_at)
-        embed.set_author(name=f"New Staff Application")
-        embed.add_field(name="Roblox username:", value=name.content, inline=False)
-        embed.add_field(name="Reason for becoming staff:", value=reason.content, inline=False)
-        embed.add_field(name="How they could benefit:" , value=benefit.content}", inline=False)
-        embed.add_field(name="Activity:" , value =rating.content", inline=False)
-        embed.add_field(name="Understanding of application declining:" , value =decline.content", inline=False)
-        embed.add_field(name="Understand of firing and attending training:" , value =fire.content", inline=False)
+        embed.set_author(name=f"New Application")
+        embed.add_field(name="Experience:", value=price.content, inline=False)
+        embed.add_field(name="Reasoning:", value=note.content, inline=False)
+        embed.add_field(name="The role/responsibilities:", value=idk.content, inline=False)
+        embed.add_field(name="Rules & TOS:", value=rating.content, inline=False)
         embed.set_footer(text=f"Sent by {ctx.author}")
         channel = self.bot.get_channel(794962966788702218)
         await channel.send(embed=embed)
 
-    @ally.error
+    @apply.error
     async def sell_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
-            await ctx.send(f"You have recently applied for staff. Wait {(int(error.retry_after/20160))} minutes to retry.")
+            await ctx.send(f"You have recently used the command. Wait {(int(error.retry_after/60))} minutes to retry.")
 
 
 def setup(bot):
