@@ -54,42 +54,32 @@ Requirements:
                     except asyncio.TimeoutError:
                         return
                     else:
-                        await ctx.author.send("How active are you?")
+                        await ctx.author.send("How active will you be if you become staff here at Avenir?")
                         try:
                             rating = await self.bot.wait_for('message', check=check, timeout=120)
                         except asyncio.TimeoutError:
                             await ctx.author.send("Timed out")
-                        else:
-                            
-                    await ctx.author.send("How active would you be if you became a member of staff here at Avenir?")
-                    try:
-                        srating = await self.bot.wait_for('message', check=check, timeout=120)
-                    except asyncio.TimeoutError:
-                        return
-                    else:
-                        
+                        else:      
                     await ctx.author.send("Do you unerstand that your application can be declined at any moment?")
                     try:
                         decline = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
                         return
                     else:
-                        
                     await ctx.author.send("Do you understand that you can be fired at any time and you will have to attend a training before you become a full staff member?")
                     try:
                         fire = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
                         return
                     else:
-                            await ctx.author.send('Your application has been submit. [ Phase 1/3 ]')
+                    await ctx.author.send('Your application has been submited.')
 
         embed = discord.Embed(timestamp=ctx.message.created_at)
         embed.set_author(name=f"New Staff Application")
         embed.add_field(name="Roblox username:", value=name.content, inline=False)
         embed.add_field(name="Reason for becoming staff:", value=reason.content, inline=False)
         embed.add_field(name="How they could benefit:" , value=benefit.content}", inline=False)
-        embed.add_field(name="Activity before becoming staff:" , value =rating.content", inline=False)
-        embed.add_field(name="Activity when staff:" , value =srating.content", inline=False)
+        embed.add_field(name="Activity:" , value =rating.content", inline=False)
         embed.add_field(name="Understanding of application declining:" , value =decline.content", inline=False)
         embed.add_field(name="Understand of firing and attending training:" , value =fire.content", inline=False)
         embed.set_footer(text=f"Sent by {ctx.author}")
