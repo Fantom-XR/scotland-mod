@@ -121,9 +121,9 @@ async def suggest_error(ctx, error):
         await ctx.send(f"Hey! you need to wait {(int(error.retry_after/60))} mins before using it again!")
 
 bot.load_extension("COgs.help")
-bot.load_extension("COgs.sell")
+#bot.load_extension("COgs.sell")
 bot.load_extension("COgs.moderaion")
-#bot.load_extension("COgs.apply")
+bot.load_extension("COgs.apply")
 #bot.load_extension("COgs.verify")
 
 bot.run("Nzg4NTEwNzcxNTAzNjkzODU0.X9kj4Q.5uf4gnixXRl81k45GdDKoXOXaD0")
