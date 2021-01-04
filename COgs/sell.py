@@ -54,7 +54,7 @@ class marketplace(commands.Cog):
     @commands.command()
     @commands.cooldown(1,3600,BucketType.member)
     async def hire(self, ctx):
-        await ctx.send('Look for a DM by <@681537574593888336>')
+        await ctx.send('Look for a DM by <@788510771503693854>')
         await ctx.author.send("Who are you trying to hire? [ Builder, Scripter etc. ]")
         def check(msg):
             return not msg.guild and msg.author == ctx.author
@@ -75,7 +75,7 @@ class marketplace(commands.Cog):
                 except asyncio.TimeoutError:
                     await ctx.author.send("time out!")
                 else:
-                    await ctx.author.send("Your advert has been published! Look in <#724241277826105374>")
+                    await ctx.author.send("Your advert has been published! Look in <#789541244380381205>")
                 
 
         embed = discord.Embed(timestamp=ctx.message.created_at)
@@ -84,7 +84,7 @@ class marketplace(commands.Cog):
         embed.add_field(name="Looking for a:", value=hire.content, inline=False)
         embed.add_field(name="Payment:", value=price.content, inline=False)
         embed.add_field(name="Work needed:", value=notes.content, inline=False)
-        channel = self.bot.get_channel(724241277826105374)
+        channel = self.bot.get_channel(789541244380381205)
         await channel.send(embed=embed)
 
 
@@ -92,7 +92,7 @@ class marketplace(commands.Cog):
     @commands.command()
     @commands.cooldown(1,3600,BucketType.member)
     async def ad(self, ctx):
-        await ctx.send('Look for a DM by <@681537574593888336>')
+        await ctx.send('Look for a DM by <@788510771503693854>')
         await ctx.author.send("What is the name of your business?")
         def check(msg):
             return not msg.guild and msg.author == ctx.author
@@ -121,7 +121,7 @@ class marketplace(commands.Cog):
                     except asyncio.TimeoutError:
                         await ctx.author.send("Timed out")
                     else:
-                        await ctx.author.send("Your advert has been published! Look in <#724241221395939330>")
+                        await ctx.author.send("Your advert has been published! Look in <#789541041631395890>")
                 
         
         embed = discord.Embed(timestamp=ctx.message.created_at)
@@ -131,7 +131,7 @@ class marketplace(commands.Cog):
         embed.add_field(name="Link(s)" , value =f"{price.content}", inline=False)
         embed.set_image(url=attachment_url)
         embed.set_footer(text=f"Sent by {ctx.author}")
-        channel = self.bot.get_channel(724241221395939330)
+        channel = self.bot.get_channel(789541041631395890)
         await channel.send(embed=embed)
         
         
