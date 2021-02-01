@@ -43,7 +43,6 @@ async def dm(ctx, member: discord.Member, * , text=None) :
 
 @bot.command()
 @commands.guild_only()
-@commands.cooldown(1,3600,BucketType.member)
 async def suggest(ctx, *, message=None):
     """
     || Gives a suggestion in suggestion channel
@@ -114,11 +113,6 @@ async def on_message(message):
         response = random.choice(brooklyn_99_quotes)
         await message.channel.send(response)
     await bot.process_commands(message)
-
-@suggest.error
-async def suggest_error(ctx, error):
-    if isinstance(error, commands.CommandOnCooldown):
-        await ctx.send(f"Hey! you need to wait {(int(error.retry_after/60))} mins before using it again!")
 
 bot.load_extension("COgs.help")
 bot.load_extension("COgs.sell")
