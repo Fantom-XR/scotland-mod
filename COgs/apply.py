@@ -8,7 +8,6 @@ class marketplace(commands.Cog):
         self.bot = bot
     
     @commands.command()
-    @commands.cooldown(1,3600,BucketType.member)
     async def apply(self, ctx):
         await ctx.send('Check for a DM by <@788510771503693854>')
         await ctx.author.send("""**Avenir Staff Application**
@@ -72,11 +71,7 @@ Requirements:
         channel = self.bot.get_channel(794962966788702218)
         await channel.send(embed=embed)
 
-    @apply.error
-    async def sell_error(self, ctx, error):
-        if isinstance(error, commands.CommandOnCooldown):
-            await ctx.send(f"You have recently used the command. Wait {(int(error.retry_after/60))} minutes to retry.")
-
+  
 
 def setup(bot):
     bot.add_cog(marketplace(bot))
