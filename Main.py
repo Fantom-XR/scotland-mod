@@ -67,8 +67,8 @@ async def suggest(ctx, *, message=None):
     await ctx.message.delete()
     await ctx.send(f"{ctx.author.mention} your suggestion has been sent! Other users can now see your suggestion, if you would like your suggestion removed please contact a High Rank.")
     await channel.send(embed =embed)
-    await message_.add_reaction("✅")
-    await message_.add_reaction("❎")
+ await message.add_reaction('✅')
+await message.add_reaction('❌')
 
 @bot.command()
 async def hub(ctx):
