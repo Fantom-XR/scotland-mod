@@ -60,13 +60,15 @@ async def suggest(ctx, *, message=None):
 
     embed.add_field(name='Suggestion By:', value=ctx.author.mention)
     embed.add_field(name='Suggestion:', value=message)
+   
     
     
 
     await ctx.message.delete()
     await ctx.send(f"{ctx.author.mention} your suggestion has been sent! Other users can now see your suggestion, if you would like your suggestion removed please contact a High Rank.")
     await channel.send(embed =embed)
-
+    await message_.add_reaction("✅")
+    await message_.add_reaction("❎")
 
 @bot.command()
 async def hub(ctx):
