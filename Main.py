@@ -9,7 +9,7 @@ bot.remove_command("help")
 
 @bot.event
 async def on_ready():
-    print("signed as reserve bot \n prefix is .")
+    print("signed as Scotland Moderation \n prefix is .")
     await bot.change_presence(activity=discord.Game(name="Stay Home | Protect the NHS | Save Lives"))
 
 @bot.command()
@@ -19,12 +19,12 @@ async def ping(ctx):
 
 @bot.event
 async def on_member_join(member):
-    chan1 = member.guild.get_channel(790682444252315668)
-    await chan1.send(f"**Welcome to Avenir!** \n Hello, {member.mention}, welcome to Avenir! We are now at {member.guild.member_count} members. \n Please view #information to learn more about us. Before you gain full access to our server, you'll need to verify in <#790682463126945792>. Instructions for verification can be found in <#790682444252315668>.")
+    chan1 = member.guild.get_channel(788125714859819098)
+    await chan1.send(f"**🚶 Member Left:** {member.mention}, There are now {member.guild.member_count} members.")
 
 @bot.event
 async def on_member_remove(member):
-    chan = member.guild.get_channel(794521047558520852)
+    chan = member.guild.get_channel(788125714859819098)
     await chan.send(f"**🚶 Member Left:** {member.mention}, There are now {member.guild.member_count} members.")
 
 @bot.command()
@@ -48,10 +48,10 @@ async def suggest(ctx, *, message=None):
     || Gives a suggestion in suggestion channel
     """
     if not message:
-        await ctx.send("Please Introduce a suggestion :/.")
+        await ctx.send("Please Introduce a suggestion.")
         return
  
-    channel = bot.get_channel(788520182549053472)
+    channel = bot.get_channel(788131736792989726)
     message = message
  
     embed = discord.Embed(timestamp=ctx.message.created_at)
@@ -65,21 +65,21 @@ async def suggest(ctx, *, message=None):
     
 
     await ctx.message.delete()
-    await ctx.send(f"{ctx.author.mention} your suggestion has been sent! Other users can now see your suggestion, if you would like your suggestion removed please contact a High Rank.")
+    await ctx.send(f"{ctx.author.mention} your suggestion has been sent! Other users can now see your suggestion, if you would like your suggestion removed please contact a admin.")
     await channel.send(embed =embed)
  
 
 @bot.command()
-async def hub(ctx):
+async def servers(ctx):
     """|| gives you link to the Hub!"""
-    await ctx.send("https://www.roblox.com/games/6153453289/AV-Hub")
+    await ctx.send("Coming Soon!")
 
 #link to group
 
 @bot.command()
 async def group(ctx):
     """|| Gives you link the the group!"""
-    await ctx.send("https://www.roblox.com/groups/8644129/AV-Avenir#!/about")
+    await ctx.send("https://www.roblox.com/groups/4170430/Scotland#!/about")
 
 
 '''@bot.command(name="8ball")
@@ -91,7 +91,7 @@ async def _ball(ctx):
 @tasks.loop(seconds = 600)
 async def member():
     name1 = (f"Member Count : {member.guild.member_count}")
-    chan = member.guild.get_channel(794521047558520852)
+    chan = member.guild.get_channel(806253474265563166)
     await chan.edit(name=name1)
 
 @bot.command()
@@ -121,4 +121,4 @@ bot.load_extension("COgs.moderaion")
 #bot.load_extension("COgs.apply")
 #bot.load_extension("COgs.verify")
 
-bot.run(" ")
+bot.run("ODA2MjQ1ODI5NDc1NTY1NjA5.YBmo8Q.bFqyPyAzWPsCt8gKFjcETZ63VOM")
