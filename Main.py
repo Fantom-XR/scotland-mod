@@ -68,34 +68,6 @@ async def suggest(ctx, *, message=None):
     await ctx.send(f"{ctx.author.mention} your suggestion has been sent! Other users can now see your suggestion, if you would like your suggestion removed please contact a admin.")
     await channel.send(embed =embed)
  
-@bot.command()
-@commands.guild_only()
-async def bug(ctx, *, message=None):
-    """
-    || Sends a bug in the bug channel
-    """
-    if not message:
-        await ctx.send("Please Introduce a bug.")
-        return
- 
-    channel = bot.get_channel(807754654640242748)
-    message = message
- 
-    embed = discord.Embed(timestamp=ctx.message.created_at)
-
-    embed.set_author(name='New Bug report!')
-
-    embed.add_field(name='Bug reported By:', value=ctx.author.mention)
-    embed.add_field(name='Bug:', value=message)
-   
-    
-    
-
-    await ctx.message.delete()
-    await ctx.send(f"{ctx.author.mention} your bug has been sent! The dev team will look into it.")
-    await channel.send(embed =embed)
-
-
 #link to group
 
 @bot.command()
