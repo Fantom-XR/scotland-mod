@@ -68,11 +68,33 @@ async def suggest(ctx, *, message=None):
     await ctx.send(f"{ctx.author.mention} your suggestion has been sent! Other users can now see your suggestion, if you would like your suggestion removed please contact a admin.")
     await channel.send(embed =embed)
  
-
 @bot.command()
-async def servers(ctx):
-    """|| gives you link to the Hub!"""
-    await ctx.send("Coming Soon!")
+@commands.guild_only()
+async def bug(ctx, *, message=None):
+    """
+    || Sends a bug in the bug channel
+    """
+    if not message:
+        await ctx.send("Please Introduce a bug.")
+        return
+ 
+    channel = bot.get_channel(788131736792989726)
+    message = message
+ 
+    embed = discord.Embed(timestamp=ctx.message.created_at)
+
+    embed.set_author(name='New Bug report!')
+
+    embed.add_field(name='Bug reported By:', value=ctx.author.mention)
+    embed.add_field(name='Bug:', value=message)
+   
+    
+    
+
+    await ctx.message.delete()
+    await ctx.send(f"{ctx.author.mention} your bug has been sent! The dev team will look into it.")
+    await channel.send(embed =embed)
+
 
 #link to group
 
@@ -110,7 +132,7 @@ async def on_message(message):
         'well whats the prob boomer?',
     ]
 
-    if message.content in ('Reserve bot sucks','this bot sucks', 'reserve bot is bad', 'reserve bot needs work', 'ew this bot', 'reserve sucks'):
+    if message.content in ('This bot sucks','this bot sucks', 'Thus bot is bad', 'scotland bot needs work', 'ew this bot', 'scotland sucks'):
         response = random.choice(brooklyn_99_quotes)
         await message.channel.send(response)
     await bot.process_commands(message)
@@ -121,4 +143,4 @@ bot.load_extension("COgs.moderaion")
 #bot.load_extension("COgs.apply")
 #bot.load_extension("COgs.verify")
 
-bot.run("ODA2MjQ1ODI5NDc1NTY1NjA5.YBmo8Q.bFqyPyAzWPsCt8gKFjcETZ63VOM")
+bot.run("ODA2MjQ1ODI5NDc1NTY1NjA5.YBmo8Q._CDnggmraOy550o9EP5-_JLcU-Y")
