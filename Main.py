@@ -78,7 +78,7 @@ async def bug(ctx, *, message=None):
         await ctx.send("Please Introduce a bug.")
         return
  
-    channel = bot.get_channel(788131736792989726)
+    channel = bot.get_channel(807754654640242748)
     message = message
  
     embed = discord.Embed(timestamp=ctx.message.created_at)
