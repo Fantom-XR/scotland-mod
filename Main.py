@@ -115,4 +115,4 @@ bot.load_extension("COgs.moderaion")
 #bot.load_extension("COgs.apply")
 #bot.load_extension("COgs.verify")
 
-bot.run("ODA2MjQ1ODI5NDc1NTY1NjA5.YBmo8Q.UyZcchc7Rae-X3ojr-h1J-I3_wQ")
+bot.run("ODA2MjQ1ODI5NDc1NTY1NjA5.YBmo8Q.kSfBfd_8J7yHFsCCHoC93v8GA4Q")
