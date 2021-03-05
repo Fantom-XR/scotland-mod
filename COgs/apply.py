@@ -19,7 +19,7 @@ Requirements:
 - Must be 13+ to apply
 - Must be active
 
-*Respond to this message to continue, or say "cancel".*
+Say "next" to continue, or say "cancel" if you wish not to do the application.
 """)
         def check(msg):
             return not msg.guild and msg.author == ctx.author
