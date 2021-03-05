@@ -9,11 +9,8 @@ class marketplace(commands.Cog):
     
     @commands.command()
     async def apply(self, ctx):
-        await ctx.send('Check for a DM by <@788510771503693854>')
-        await ctx.author.send("""**Avenir Staff Application**
-        
-Avenir Staff Benefits:
-- 20% off of products, don't just apply because of this please apply because you think you suit the job.
+        await ctx.send('Check for a DM by <@814852722087034891>')
+        await ctx.author.send("""**Scotland™ Staff Application**
 
 Requirements:
 - Your reputation must be clean.
@@ -47,28 +44,28 @@ Requirements:
                 except asyncio.TimeoutError:
                     await ctx.author.send("Timed out")
                 else:
-                    await ctx.author.send("Do you know what to do as customer service? If so please explain.")
+                    await ctx.author.send("Do you know what to do as a staff member at Scotland™? If so please explain.")
                     try:
                         idk = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
                         return
                     else:
-                        await ctx.author.send("Do you agree to all of our rules and terms of services?")
+                        await ctx.author.send("Do you agree to all of our rules?")
                         try:
                             rating = await self.bot.wait_for('message', check=check, timeout=120)
                         except asyncio.TimeoutError:
                             await ctx.author.send("Timed out")
                         else:
-                            await ctx.author.send('Your application has been submit. [ Phase 1/3 ]')
+                            await ctx.author.send('Your application has been submit. [ Phase 1/3 ] \n Phase 2 is more questions and an exam. \n Phase 3 is a trial phase')
 
         embed = discord.Embed(timestamp=ctx.message.created_at)
         embed.set_author(name=f"New Application")
         embed.add_field(name="Experience:", value=price.content, inline=False)
         embed.add_field(name="Reasoning:", value=note.content, inline=False)
         embed.add_field(name="The role/responsibilities:", value=idk.content, inline=False)
-        embed.add_field(name="Rules & TOS:", value=rating.content, inline=False)
+        embed.add_field(name="Rules:", value=rating.content, inline=False)
         embed.set_footer(text=f"Sent by {ctx.author}")
-        channel = self.bot.get_channel(794962966788702218)
+        channel = self.bot.get_channel(817404938761535540)
         await channel.send(embed=embed)
 
   
