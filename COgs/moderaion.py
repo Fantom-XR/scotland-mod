@@ -9,7 +9,7 @@ class Cog(commands.Cog):
     
     @commands.command()
     @commands.guild_only()
-    @commands.has_guild_permissions(kick_members = True)
+    @commands.has_guild_permissions(administrator = True)
     async def kick(self, ctx, member: discord.Member, * , reason = None):
         """|| Kicks a player (owner only)"""
         await member.send(f"you were kicked by {ctx.author.mention} for following resons(s) : {reason}")
@@ -80,7 +80,7 @@ class Cog(commands.Cog):
             await ctx.send("provide a announcement")
         embed = discord.Embed(timestamp=ctx.message.created_at)
         embed.add_field(name="Announcement" , value=announcement)
-        embed.set_footer(text=f"Send by {ctx.author}")
+        embed.set_footer(text=f"Sent by {ctx.author}")
         await chan.send(embed=embed)
     
     @commands.command()
