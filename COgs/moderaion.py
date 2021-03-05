@@ -70,6 +70,7 @@ class Cog(commands.Cog):
     @commands.has_guild_permissions(administrator = True)
     async def dm(self,ctx, member: discord.Member, * , text=None):
         await member.send(f"{text}")
+        await ctx.send(f"{member.mention} was kick by {ctx.author.mention} Message :``` {text} ```")
 
     @commands.command()
     @commands.guild_only()
