@@ -112,7 +112,7 @@ async def on_message(message):
 bot.load_extension("COgs.help")
 #bot.load_extension("COgs.sell")
 bot.load_extension("COgs.moderaion")
-#bot.load_extension("COgs.apply")
+bot.load_extension("COgs.apply")
 #bot.load_extension("COgs.verify")
 
 bot.run("ODE0ODU3MTEyNDU4MTAwNzM2.YDj80g.uR2a6MLoGwMmeLmh_gq972ztglk")
