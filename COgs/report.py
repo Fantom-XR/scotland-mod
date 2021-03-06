@@ -67,10 +67,6 @@ Say "next" to continue, or say "cancel" if you wish not to make a report.
         channel = self.bot.get_channel(817727667196919809)
         await channel.send(embed=embed)
 
-    @ally.error
-    async def sell_error(self, ctx, error):
-        if isinstance(error, commands.CommandOnCooldown):
-            await ctx.send(f"You have recently submit a report. Wait {(int(error.retry_after/60))} minutes to retry.")
 
 
 def setup(bot):
