@@ -60,7 +60,7 @@ Say "next" to continue, or say "cancel" if you wish not to make a report.
                             await ctx.author.send('Your report has been submit.]')
 
 embed = discord.Embed(timestamp=ctx.message.created_at)
-        embed.set_author(name=f"New Report")
+        embed.set_author(name="New Report")
         embed.add_field(name="Name:", value=price.content, inline=False)
         embed.add_field(name="Reported user:", value=note.content, inline=False)
         embed.add_field(name="Reason:", value=reason.content, inline=False)
