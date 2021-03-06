@@ -11,14 +11,14 @@ class marketplace(commands.Cog):
     @commands.cooldown(1,3600,BucketType.member)
     async def report(self, ctx):
         await ctx.send('Check for a DM by <@681537574593888336>')
-        await ctx.author.send("""**RESERVE TECH - REPORTING SYSTEM**
+        await ctx.author.send("""**REPORTING SYSTEM**
         
 Information:
 - Your report must be fact based
 - You must provide proof in your report
 - False reports will result in a consequence
 
-*Respond to this message to continue, or say "cancel".*
+Say "next" to continue, or say "cancel" if you wish not to make a report.
 """)
         def check(msg):
             return not msg.guild and msg.author == ctx.author
@@ -64,7 +64,7 @@ Information:
         embed.add_field(name="Report Reasoning:" , value =f"{Image.content}", inline=False)
         embed.add_field(name="Proof:" , value =f"{rating.content}", inline=False)
         embed.set_footer(text=f"Sent by {ctx.author}")
-        channel = self.bot.get_channel(749945985773469757)
+        channel = self.bot.get_channel(817727667196919809)
         await channel.send(embed=embed)
 
     @ally.error
