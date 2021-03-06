@@ -9,7 +9,7 @@ class Cog(commands.Cog):
     
     @commands.command()
     @commands.guild_only()
-    @commands.has_guild_permissions(administrator = True)
+    @commands.has_guild_permissions(kick_members = True)
     async def kick(self, ctx, member: discord.Member, * , reason = None):
         """|| Kicks a player (owner only)"""
         await member.send(f"you were kicked by {ctx.author.mention} for following resons(s) : {reason}")
@@ -18,7 +18,7 @@ class Cog(commands.Cog):
     
     @commands.command()
     @commands.guild_only()
-    @commands.has_guild_permissions(administrator = True)
+    @commands.has_guild_permissions(ban_members = True)
     async def ban(self, ctx, member: discord.Member, * , reason = None):
         """"|| Bans a member"""
         await member.send(f"you were baned by {ctx.author.mention} for following reason(s) : {reason}")
@@ -26,7 +26,7 @@ class Cog(commands.Cog):
         await ctx.send(f"{member.mention} was baned by {ctx.author.mention} reason : {reason}")
     
     @commands.command()
-    @commands.has_guild_permissions(administrator = True)
+    @commands.has_guild_permissions(ban_members = True)
     async def unban(self,ctx, *, member):
         """|| Unban command no need of mention use like Expressingames#2342"""
         banned_users = await ctx.guild.bans()
@@ -52,7 +52,7 @@ class Cog(commands.Cog):
 
     @commands.command()
     @commands.guild_only()
-    @commands.has_guild_permissions(administrator = True)
+    @commands.has_guild_permissions(manage_messages = True)
     async def announce2(self,ctx, chan: discord.TextChannel, * , announcement=None):
         """|| announces something """
         if not announcement:
@@ -67,14 +67,14 @@ class Cog(commands.Cog):
 
     @commands.command()
     @commands.guild_only()
-    @commands.has_guild_permissions(administrator = True)
+    @commands.has_guild_permissions(manage_messages = True)
     async def dm(self,ctx, member: discord.Member, * , text=None):
         await member.send(f"{text}")
         await ctx.send(f"{member.mention} was sent a DM by {ctx.author.mention} Message :``` {text} ```")
 
     @commands.command()
     @commands.guild_only()
-    @commands.has_guild_permissions(administrator = True)
+    @commands.has_guild_permissions(manage_messages = True)
     async def announce(self,ctx, chan: discord.TextChannel, * , announcement=None):
         """|| announces something """
         if not announcement:
@@ -84,74 +84,7 @@ class Cog(commands.Cog):
         embed.set_footer(text=f"Sent by {ctx.author}")
         await chan.send(embed=embed)
     
-    @commands.command()
-    @commands.guild_only()
-    @commands.has_guild_permissions(administrator=True)
-    async def banner(self, ctx,chan: discord.TextChannel, * , heading):
-        await ctx.send("whats the discription?")
-        def check(m):
-            return m.author.id == ctx.author.id and m.channel.id == ctx.channel.id
-        try:
-            item = await self.bot.wait_for('message', check=check, timeout=120)
-        except asyncio.TimeoutError:
-            await ctx.send("Timed out")
-        else:
-            await ctx.send("please provide a image (no links) ")
-            try:
-                Image = await self.bot.wait_for('message', check=check, timeout=120)
-                attachment = Image.attachments[0]
-                attachment_url = attachment.url
-            except asyncio.TimeoutError:
-                await ctx.send("Timed out")
-            else:
-                await ctx.send("DONE!")
-
-        color = 0x36393F
-        embed= discord.Embed(color=color)
-        embed.add_field(name=heading, value=item.content)
-        embed.set_image(url=attachment_url)
-        await chan.send(embed=embed)
-
-    @commands.command()
-    @commands.has_guild_permissions(administrator=True)
-    async def product(self, ctx, chan: discord.TextChannel):
-        await ctx.send("Whats the product?")
-        def check(m):
-            return m.author.id == ctx.author.id and m.channel.id == ctx.channel.id
-        try:
-            item = await self.bot.wait_for('message', check=check, timeout=120)
-        except asyncio.TimeoutError:
-            await ctx.send("Timed out")
-        else:
-            await ctx.send("Whats the price?")
-            try:
-                price = await self.bot.wait_for('message', check=check, timeout=120)
-            except asyncio.TimeoutError:
-                await ctx.send("Timed out")
-            else:
-                await ctx.send("Any note?")
-                try:
-                    note = await self.bot.wait_for('message', check=check, timeout=120)
-                except asyncio.TimeoutError:
-                    await ctx.send("Timed out")
-                else:
-                    await ctx.send("please provide a image (no links) ")
-                    try:
-                        Image = await self.bot.wait_for('message', check=check, timeout=120)
-                        attachment = Image.attachments[0]
-                        attachment_url = attachment.url
-                    except asyncio.TimeoutError:
-                        await ctx.send("Timed out")
-                    else:
-                        await ctx.send("DONE!")
-
-        embed = discord.Embed()
-        embed.set_author(name=f"Item")
-        embed.add_field(name="product" , value=item.content)
-        embed.add_field(name="Price" , value=price.content)
-        embed.add_field(name="Note" , value=note.content)
-        embed.set_image(url=attachment_url)
-        await chan.send(embed=embed)
-
+   
+   
 def setup(bot):
     bot.add_cog(Cog(bot))
