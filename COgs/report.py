@@ -10,7 +10,7 @@ class marketplace(commands.Cog):
     @commands.command()
     @commands.cooldown(1,3600,BucketType.member)
     async def report(self, ctx):
-        await ctx.send('Check for a DM by <@681537574593888336>')
+        await ctx.send('Check for a DM by <@814857112458100736>')
         await ctx.author.send("""**REPORTING SYSTEM**
         
 Information:
