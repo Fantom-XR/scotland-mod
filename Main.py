@@ -3,7 +3,7 @@ from discord.ext import commands, tasks
 from discord.ext.commands.cooldowns import BucketType
 import random
 
-bot = commands.Bot(command_prefix=commands.when_mentioned_or('.'))
+bot = commands.Bot(command_prefix=commands.when_mentioned_or(':'))
 bot.remove_command("help")
 
 
