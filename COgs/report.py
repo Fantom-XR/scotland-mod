@@ -70,4 +70,4 @@ Say "next" to continue, or say "cancel" if you wish not to make a report.
 
 
 def setup(bot):
-    bot.add_cog(marketplace(bot))
+    bot.add_cog(report(bot))
