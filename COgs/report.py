@@ -49,25 +49,25 @@ Say "next" to continue, or say "cancel" if you wish not to make a report.
                     except asyncio.TimeoutError:
                         return
                     else:
-                        await ctx.author.send("Please submit proof of these accusations.")
-                        try:
-                            rating = await self.bot.wait_for('message', check=check, timeout=120)
-                        except asyncio.TimeoutError:
-                            await ctx.author.send("Timed out")
-                        else:
+                       await ctx.author.send("Please provide an image, not a link.")
+                    try:
+                        Image = await self.bot.wait_for('message', check=check, timeout=120)
+                        attachment = Image.attachments[0]
+                        attachment_url = attachment.url
+                    except asyncio.TimeoutError:
+                        await ctx.author.send("Timed out")
+                    else:
                             await ctx.author.send('Your report has been submit.]')
 
-        embed = discord.Embed(timestamp=ctx.message.created_at)
+embed = discord.Embed(timestamp=ctx.message.created_at)
         embed.set_author(name=f"New Report")
         embed.add_field(name="Name:", value=price.content, inline=False)
         embed.add_field(name="Reported user:", value=note.content, inline=False)
-        embed.add_field(name="Report Reasoning:" , value =f"{Image.content}", inline=False)
-        embed.add_field(name="Proof:" , value =f"{rating.content}", inline=False)
+        embed.add_field(name="Reason:", value=idk.content, inline=False)
+        embed.set_image(url=attachment_url)
         embed.set_footer(text=f"Sent by {ctx.author}")
         channel = self.bot.get_channel(817727667196919809)
         await channel.send(embed=embed)
-
-
 
 def setup(bot):
     bot.add_cog(report(bot))
