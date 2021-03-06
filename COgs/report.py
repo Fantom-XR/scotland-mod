@@ -45,7 +45,7 @@ Say "next" to continue, or say "cancel" if you wish not to make a report.
                 else:
                     await ctx.author.send("What are you reporting this user for?")
                     try:
-                        Image = await self.bot.wait_for('message', check=check, timeout=120)
+                        reason = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
                         return
                     else:
@@ -63,7 +63,7 @@ embed = discord.Embed(timestamp=ctx.message.created_at)
         embed.set_author(name=f"New Report")
         embed.add_field(name="Name:", value=price.content, inline=False)
         embed.add_field(name="Reported user:", value=note.content, inline=False)
-        embed.add_field(name="Reason:", value=idk.content, inline=False)
+        embed.add_field(name="Reason:", value=reason.content, inline=False)
         embed.set_image(url=attachment_url)
         embed.set_footer(text=f"Sent by {ctx.author}")
         channel = self.bot.get_channel(817727667196919809)
