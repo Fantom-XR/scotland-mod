@@ -3,7 +3,7 @@ from discord.ext import commands
 import asyncio
 from discord.ext.commands.cooldowns import BucketType
 
-class marketplace(commands.Cog):
+class report(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     
