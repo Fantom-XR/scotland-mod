@@ -9,7 +9,7 @@ bot.remove_command("help")
 
 @bot.event
 async def on_ready():
-    print("signed as Scotland Moderation \n prefix is .")
+    print("signed as Scotland Moderation \n prefix is :")
     await bot.change_presence(activity=discord.Game(name="Stay Home | Protect the NHS | Save Lives"))
 
 @bot.command()
