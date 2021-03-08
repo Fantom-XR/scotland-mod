@@ -9,15 +9,13 @@ class marketplace(commands.Cog):
     
     @commands.command()
     async def sfrs(self, ctx):
-        await ctx.send('Check for a DM by <@814852722087034891>')
-        await ctx.author.send("""**Scotland™ Staff Application**
+        await ctx.send('Check for a DM by <@814857112458100736>')
+        await ctx.author.send("""**SFRS Application**
 
-Requirements:
-- Your reputation must be clean.
-- When applying, use full punctuation & grammar.
-- Answer questions in detail and to the best of your ability
-- Must be 13+ to apply
-- Must be active
+Hello, This is the Application for SFRS, Take your Time, Be Honest.
+
+
+Do not ask for anyone to read your Application.
 
 Say "next" to continue, or say "cancel" if you wish not to do the application.
 """)
@@ -32,38 +30,130 @@ Say "next" to continue, or say "cancel" if you wish not to do the application.
             return
 
         else:
-            await ctx.author.send("Have you got any past experience?")
+            await ctx.author.send("ROBLOX Username")
             try:
-                price = await self.bot.wait_for('message', check=check, timeout=120)
+                name = await self.bot.wait_for('message', check=check, timeout=120)
             except asyncio.TimeoutError:
                 await ctx.author.send("Timed out")
             else:
-                await ctx.author.send("How can you benefit us?")
+                await ctx.author.send("How active are you on a scale of 1-10? \n 1 = Not very active \n 10 = Acitve")
                 try:
-                    note = await self.bot.wait_for('message', check=check, timeout=120)
+                    activity = await self.bot.wait_for('message', check=check, timeout=120)
                 except asyncio.TimeoutError:
                     await ctx.author.send("Timed out")
                 else:
-                    await ctx.author.send("Do you know what to do as a staff member at Scotland™? If so please explain.")
+                    await ctx.author.send("Why do you want to be apart of SFRS?")
                     try:
-                        idk = await self.bot.wait_for('message', check=check, timeout=120)
+                        part = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
                         return
                     else:
-                        await ctx.author.send("Do you agree to all of our rules?")
+                        await ctx.author.send("DO you have any Experience of being a Fire Fighter? \n Yes, No, Maybe")
                         try:
-                            rating = await self.bot.wait_for('message', check=check, timeout=120)
+                            expereince = await self.bot.wait_for('message', check=check, timeout=120)
                         except asyncio.TimeoutError:
                             await ctx.author.send("Timed out")
                         else:
-                            await ctx.author.send('Your application has been submit. [ Phase 1/3 ] \n Phase 2 is more questions and an exam. \n Phase 3 is a trial phase')
+                            await ctx.author.send("If yes Please Explain \n *If you picked no please say N/A.*")
+                    try:
+                        expereince1 = await self.bot.wait_for('message', check=check, timeout=120)
+                    except asyncio.TimeoutError:
+                        return
+                    else:
+                        await ctx.author.send("What equipment is in a Fire Engine?")
+                    try:
+                        equipment = await self.bot.wait_for('message', check=check, timeout=120)
+                    except asyncio.TimeoutError:
+                        return
+                    else:
+                             await ctx.author.send("Tell Me More about yourself")
+                    try:
+                        them = await self.bot.wait_for('message', check=check, timeout=120)
+                    except asyncio.TimeoutError:
+                        return
+                    else:
+                                await ctx.author.send("Why would you be a good FIrefighter?")
+                    try:
+                        good = await self.bot.wait_for('message', check=check, timeout=120)
+                    except asyncio.TimeoutError:
+                        return
+                    else:
+                               await ctx.author.send("Do you have the Traits of a Firefighter? \n Yes, No, Maybe")
+                    try:
+                        traits = await self.bot.wait_for('message', check=check, timeout=120)
+                    except asyncio.TimeoutError:
+                        return
+                    else:
+                                   await ctx.author.send("Do you promise not to abuse Lights and Siren? \n Yes, No, Maybe")
+                    try:
+                        lights = await self.bot.wait_for('message', check=check, timeout=120)
+                    except asyncio.TimeoutError:
+                        return
+                    else:
+                        
+                                   await ctx.author.send("What can you bring to the Team of SFRS?")
+                    try:
+                        bring = await self.bot.wait_for('message', check=check, timeout=120)
+                    except asyncio.TimeoutError:
+                        return
+                    else:
+                                                           await ctx.author.send("What would you do if there was a Structure Fire (Explain in 100+ Words)")
+                    try:
+                        structure = await self.bot.wait_for('message', check=check, timeout=120)
+                    except asyncio.TimeoutError:
+                        return
+                    else:
+                        await ctx.author.send("What would you do if you see a Firefighter uses abusive language?")
+                    try:
+                        lang = await self.bot.wait_for('message', check=check, timeout=120)
+                    except asyncio.TimeoutError:
+                        return
+                    else:
+                                  await ctx.author.send("Do you understand that if you get pulled over by a member of PSOS you have to Pullover? \n Yes, No, Maybe")
+                    try:
+                        psos = await self.bot.wait_for('message', check=check, timeout=120)
+                    except asyncio.TimeoutError:
+                        return
+                    else:
+                                await ctx.author.send("Would you agree to be active on SFRS at least 3 times a week? \n Yes, No")
+                    try:
+                        active = await self.bot.wait_for('message', check=check, timeout=120)
+                    except asyncio.TimeoutError:
+                        return
+                    else:
+                                                        await ctx.author.send("Do you understand that you have to call Bronze Command+ Sir or Ma'am? \n Yes, No")
+                    try:
+                        bronze = await self.bot.wait_for('message', check=check, timeout=120)
+                    except asyncio.TimeoutError:
+                        return
+                    else:
+                        await ctx.author.send("Is there anything you would like to say? If no please put no.")
+                    try:
+                        extra = await self.bot.wait_for('message', check=check, timeout=120)
+                    except asyncio.TimeoutError:
+                        return
+                    else:
+                            await ctx.author.send('Your application response has been recorded, you will recive a DM once a member of the SFRS command have read it.')
 
         embed = discord.Embed(timestamp=ctx.message.created_at)
         embed.set_author(name=f"New Application")
-        embed.add_field(name="Experience:", value=price.content, inline=False)
-        embed.add_field(name="Reasoning:", value=note.content, inline=False)
-        embed.add_field(name="The role/responsibilities:", value=idk.content, inline=False)
-        embed.add_field(name="Rules:", value=rating.content, inline=False)
+        embed.add_field(name="ROBLOX Username", value=name.content, inline=False)
+        embed.add_field(name="How active are you on a scale of 1-10?", value=activity.content, inline=False)
+        embed.add_field(name="Why do you want to be apart of SFRS?", value=part.content, inline=False)
+        embed.add_field(name="Do you have any Experience of being a Fire Fighter?", value=expereince.content, inline=False)
+        embed.add_field(name="If yes Please Explain", value=expereince1.content, inline=False)
+        embed.add_field(name="What equipment is in a Fire Engine?", value=equipment.content, inline=False)
+        embed.add_field(name="Tell Me More about yourself", value=them.content, inline=False)
+        embed.add_field(name="Why would you be a good FIrefighter?", value=good.content, inline=False)
+        embed.add_field(name="DO you have the Traits of a Firefighter?", value=traits.content, inline=False)
+        embed.add_field(name="Do you promise not to abuse Lights and Siren?", value=lights.content, inline=False)
+        embed.add_field(name="What can you bring to the Team of SFRS?", value=bring.content, inline=False)
+        embed.add_field(name="What would you do if there was a Structure Fire (Explain in 100+ Words)", value=structure.content, inline=False)
+        embed.add_field(name="What would you do if you see a Firefighter uses abusive language?", value=lang.content, inline=False)
+        embed.add_field(name="DO you understand that if you get pulled over by a member of PSOS you have to Pullover?", value=psos.content, inline=False)
+        embed.add_field(name="Would you agree to be active on SFRS at least 3 times a week?", value=active.content, inline=False)
+        embed.add_field(name="Do you understand that you have to call Bronze Command+ Sir or Ma'am?", value=bronze.content, inline=False)
+        embed.add_field(name="Is there anything you would like to say?", value=extra.content, inline=False)
         embed.set_footer(text=f"Sent by {ctx.author}")
         channel = self.bot.get_channel(818090072955420734)
         await channel.send(embed=embed)
