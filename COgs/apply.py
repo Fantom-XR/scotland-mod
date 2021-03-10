@@ -64,7 +64,7 @@ Say "next" to continue, or say "cancel" if you wish not to do the application.
         embed.add_field(name="Reasoning:", value=note.content, inline=False)
         embed.add_field(name="The role/responsibilities:", value=idk.content, inline=False)
         embed.add_field(name="Rules:", value=rating.content, inline=False)
-        embed.set_footer(text=f"Sent by {ctx.author}")
+        embed.set_footer(text=f"Sent by {ctx.author} | User ID: {ctx.author.id}")
         channel = self.bot.get_channel(817404938761535540)
         await channel.send(embed=embed)
 
