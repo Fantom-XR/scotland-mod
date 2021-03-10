@@ -154,7 +154,7 @@ Say "next" to continue, or say "cancel" if you wish not to do the application.
         embed.add_field(name="Would you agree to be active on SFRS at least 3 times a week?", value=active.content, inline=False)
         embed.add_field(name="Do you understand that you have to call Bronze Command+ Sir or Ma'am?", value=bronze.content, inline=False)
         embed.add_field(name="Is there anything you would like to say?", value=extra.content, inline=False)
-        embed.set_footer(text=f"Sent by {ctx.author}")
+        embed.set_footer(text=f"Sent by {ctx.author} | User ID: {ctx.author.id}")
         channel = self.bot.get_channel(818090072955420734)
         await channel.send(embed=embed)
 
