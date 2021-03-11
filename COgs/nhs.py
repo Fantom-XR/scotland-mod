@@ -10,15 +10,7 @@ class marketplace(commands.Cog):
     @commands.command()
     async def nhs(self, ctx):
         await ctx.send('Check for a DM by <@814857112458100736>')
-        await ctx.author.send("""**NHS Scotland™️ Application**
-
-Hello, This is the Application for NHS, Take your Time, Be Honest.
-
-
-Do not ask for anyone to read your Application.
-
-Say "next" to continue, or say "cancel" if you wish not to do the application.
-""")
+        await ctx.author.send("""**NHS Scotland Application** \n \n Hello, This is the Application for SFRS, Take your Time, Be Honest. \n \n Do not ask for anyone to read your Application. \n \n Say "next" to continue, or say "cancel" if you wish not to do the application.""")
         def check(msg):
             return not msg.guild and msg.author == ctx.author
         try:
@@ -85,10 +77,10 @@ Say "next" to continue, or say "cancel" if you wish not to do the application.
         embed.add_field(name="Do you understand if you fail, A reason does not have the be provided?", value=them.content, inline=False)
         embed.set_footer(text=f"Sent by {ctx.author} | User ID: {ctx.author.id}")
         channel = self.bot.get_channel(818090547276939264)
-        await channel.send(embed=embed)
-    await add_reaction("🟢")
-    await add_reaction("🟡")
-    await add_reaction("🔴")
+        gsm = await channel.send(embed=embed)
+    await gsm.add_reaction("🟢")
+    await gsm.add_reaction("🟡")
+    await gsm.add_reaction("🔴")
 
   
 
