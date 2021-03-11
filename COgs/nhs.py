@@ -8,7 +8,7 @@ class marketplace(commands.Cog):
         self.bot = bot
     
     @commands.command()
-    async def sfrs(self, ctx):
+    async def nhs(self, ctx):
         await ctx.send('Check for a DM by <@814857112458100736>')
         await ctx.author.send("""**SFRS Application**
 
