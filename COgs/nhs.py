@@ -137,7 +137,8 @@ Say "next" to continue, or say "cancel" if you wish not to do the application.
 
         embed = discord.Embed(timestamp=ctx.message.created_at)
         embed.set_author(name=f"New Application")
-        embed.add_field(name="ROBLOX Username", value=name.content, inline=False)
+    embed.setThumbnail('https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&Format=Png&username='name.content)   
+    embed.add_field(name="ROBLOX Username", value=name.content, inline=False)
         embed.add_field(name="How active are you on a scale of 1-10?", value=activity.content, inline=False)
         embed.add_field(name="Why do you want to be apart of SFRS?", value=part.content, inline=False)
         embed.add_field(name="Do you have any Experience of being a Fire Fighter?", value=expereince.content, inline=False)
