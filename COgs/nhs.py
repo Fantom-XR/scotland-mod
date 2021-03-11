@@ -10,9 +10,9 @@ class marketplace(commands.Cog):
     @commands.command()
     async def nhs(self, ctx):
         await ctx.send('Check for a DM by <@814857112458100736>')
-        await ctx.author.send("""**SFRS Application**
+        await ctx.author.send("""**NHS Scotland Application**
 
-Hello, This is the Application for SFRS, Take your Time, Be Honest.
+Hello, This is the Application for NHS Scotland, Take your Time, Be Honest.
 
 
 Do not ask for anyone to read your Application.
@@ -42,13 +42,13 @@ Say "next" to continue, or say "cancel" if you wish not to do the application.
                 except asyncio.TimeoutError:
                     await ctx.author.send("Timed out")
                 else:
-                    await ctx.author.send("Why do you want to be apart of SFRS?")
+                    await ctx.author.send("Why do you want to be apart of NHS Scotland?")
                     try:
                         part = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
                         return
                     else:
-                        await ctx.author.send("DO you have any Experience of being a Fire Fighter? \n Yes, No, Maybe")
+                        await ctx.author.send("DO you have any Experience of being a Paramedic? \n Yes, No, Maybe")
                         try:
                             expereince = await self.bot.wait_for('message', check=check, timeout=120)
                         except asyncio.TimeoutError:
@@ -60,7 +60,7 @@ Say "next" to continue, or say "cancel" if you wish not to do the application.
                     except asyncio.TimeoutError:
                         return
                     else:
-                        await ctx.author.send("What equipment is in a Fire Engine?")
+                        await ctx.author.send("What equipment is in a Ambulance?")
                     try:
                         equipment = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
@@ -72,13 +72,13 @@ Say "next" to continue, or say "cancel" if you wish not to do the application.
                     except asyncio.TimeoutError:
                         return
                     else:
-                                await ctx.author.send("Why would you be a good FIrefighter?")
+                                await ctx.author.send("Why would you be a good paramedic?")
                     try:
                         good = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
                         return
                     else:
-                               await ctx.author.send("Do you have the Traits of a Firefighter? \n Yes, No, Maybe")
+                               await ctx.author.send("What treatment should be provided when someone is in Cardiac Arrest?")
                     try:
                         traits = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
@@ -91,19 +91,19 @@ Say "next" to continue, or say "cancel" if you wish not to do the application.
                         return
                     else:
                         
-                                   await ctx.author.send("What can you bring to the Team of SFRS?")
+                                   await ctx.author.send("What can you bring to the Team of NHS Scotland?")
                     try:
                         bring = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
                         return
                     else:
-                                                           await ctx.author.send("What would you do if there was a Structure Fire (Explain in 100+ Words)")
+                                                           await ctx.author.send("What would you do if you arrived to a a patient face down on the ground?")
                     try:
                         structure = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
                         return
                     else:
-                        await ctx.author.send("What would you do if you see a Firefighter uses abusive language?")
+                        await ctx.author.send("What would you do if you see a colleague using abusive language?")
                     try:
                         lang = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
@@ -115,13 +115,13 @@ Say "next" to continue, or say "cancel" if you wish not to do the application.
                     except asyncio.TimeoutError:
                         return
                     else:
-                                await ctx.author.send("Would you agree to be active on SFRS at least 3 times a week? \n Yes, No")
+                                await ctx.author.send("Would you agree to be active on NHS Scotland at least 3 times a week? \n Yes, No")
                     try:
                         active = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
                         return
                     else:
-                                                        await ctx.author.send("Do you understand that you have to call Bronze Command+ Sir or Ma'am? \n Yes, No")
+                                                        await ctx.author.send("Do you understand that you have to call all High command members by Sir or Ma'am? \n Yes, No")
                     try:
                         bronze = await self.bot.wait_for('message', check=check, timeout=120)
                     except asyncio.TimeoutError:
@@ -133,7 +133,7 @@ Say "next" to continue, or say "cancel" if you wish not to do the application.
                     except asyncio.TimeoutError:
                         return
                     else:
-                            await ctx.author.send('Your application response has been recorded, you will recive a DM once a member of the SFRS command have read it.')
+                            await ctx.author.send('Your application response has been recorded, you will recive a DM once a member of the NHS command have read it.')
 
         embed = discord.Embed(timestamp=ctx.message.created_at)
         embed.set_author(name=f"New Application")
@@ -142,20 +142,20 @@ Say "next" to continue, or say "cancel" if you wish not to do the application.
         embed.add_field(name="Why do you want to be apart of SFRS?", value=part.content, inline=False)
         embed.add_field(name="Do you have any Experience of being a Fire Fighter?", value=expereince.content, inline=False)
         embed.add_field(name="If yes Please Explain", value=expereince1.content, inline=False)
-        embed.add_field(name="What equipment is in a Fire Engine?", value=equipment.content, inline=False)
+        embed.add_field(name="What equipment is in a Ambulance?", value=equipment.content, inline=False)
         embed.add_field(name="Tell Me More about yourself", value=them.content, inline=False)
-        embed.add_field(name="Why would you be a good FIrefighter?", value=good.content, inline=False)
-        embed.add_field(name="DO you have the Traits of a Firefighter?", value=traits.content, inline=False)
+        embed.add_field(name="Why would you be a good paramedic?", value=good.content, inline=False)
+        embed.add_field(name="What treatment should be provided when someone is in Cardiac Arrest?", value=traits.content, inline=False)
         embed.add_field(name="Do you promise not to abuse Lights and Siren?", value=lights.content, inline=False)
-        embed.add_field(name="What can you bring to the Team of SFRS?", value=bring.content, inline=False)
-        embed.add_field(name="What would you do if there was a Structure Fire (Explain in 100+ Words)", value=structure.content, inline=False)
-        embed.add_field(name="What would you do if you see a Firefighter uses abusive language?", value=lang.content, inline=False)
+        embed.add_field(name="What can you bring to the Team of NHS Scotland?", value=bring.content, inline=False)
+        embed.add_field(name="What would you do if you arrived to a a patient face down on the ground?", value=structure.content, inline=False)
+        embed.add_field(name="What would you do if you see a colleague using abusive language?", value=lang.content, inline=False)
         embed.add_field(name="DO you understand that if you get pulled over by a member of PSOS you have to Pullover?", value=psos.content, inline=False)
-        embed.add_field(name="Would you agree to be active on SFRS at least 3 times a week?", value=active.content, inline=False)
-        embed.add_field(name="Do you understand that you have to call Bronze Command+ Sir or Ma'am?", value=bronze.content, inline=False)
+        embed.add_field(name="Would you agree to be active on NHS Scotland at least 3 times a week?", value=active.content, inline=False)
+        embed.add_field(name="Do you understand that you have to call all High command members by Sir or Ma'am?", value=bronze.content, inline=False)
         embed.add_field(name="Is there anything you would like to say?", value=extra.content, inline=False)
         embed.set_footer(text=f"Sent by {ctx.author} | User ID: {ctx.author.id}")
-        channel = self.bot.get_channel(818090072955420734)
+        channel = self.bot.get_channel(818090547276939264)
         await channel.send(embed=embed)
 
   
