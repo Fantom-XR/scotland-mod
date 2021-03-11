@@ -85,10 +85,10 @@ Say "next" to continue, or say "cancel" if you wish not to do the application.
         embed.add_field(name="Do you understand if you fail, A reason does not have the be provided?", value=them.content, inline=False)
         embed.set_footer(text=f"Sent by {ctx.author} | User ID: {ctx.author.id}")
         channel = self.bot.get_channel(818090547276939264)
-        msg = await channel.send(embed =embed)
-    await msg.add_reaction("🟢")
-    await msg.add_reaction("🟡")
-    await msg.add_reaction("🔴")
+        await channel.send(embed=embed)
+    await add_reaction("🟢")
+    await add_reaction("🟡")
+    await add_reaction("🔴")
 
   
 
