@@ -98,10 +98,6 @@ async def on_message(message):
         return
 
     brooklyn_99_quotes = [
-        'Nah',
-        'No u ',
-        'well thats not the truth',
-        'well whats the prob boomer?',
         '<@450260788981137408> is an idiot',
     ]
 
