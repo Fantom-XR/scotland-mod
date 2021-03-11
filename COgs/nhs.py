@@ -86,9 +86,9 @@ Say "next" to continue, or say "cancel" if you wish not to do the application.
         embed.set_footer(text=f"Sent by {ctx.author} | User ID: {ctx.author.id}")
         channel = self.bot.get_channel(818090547276939264)
         msg = await channel.send(embed =embed)
-    await msg.add_reaction("<:tick:819526442958323782>")
-    await msg.add_reaction("<:neutral:819526442597089351>")
-    await msg.add_reaction("<:negative:819526442907336734>")
+    await msg.add_reaction("🟢")
+    await msg.add_reaction("🟡")
+    await msg.add_reaction("🔴")
 
   
 
