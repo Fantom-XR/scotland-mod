@@ -77,10 +77,7 @@ class marketplace(commands.Cog):
         embed.add_field(name="Do you understand if you fail, A reason does not have the be provided?", value=them.content, inline=False)
         embed.set_footer(text=f"Sent by {ctx.author} | User ID: {ctx.author.id}")
         channel = self.bot.get_channel(818090547276939264)
-        gsm = await channel.send(embed=embed)
-    await gsm.add_reaction("🟢")
-    await gsm.add_reaction("🟡")
-    await gsm.add_reaction("🔴")
+      await channel.send(embed=embed)
 
   
 
