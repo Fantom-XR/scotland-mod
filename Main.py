@@ -102,6 +102,7 @@ async def on_message(message):
         'No u ',
         'well thats not the truth',
         'well whats the prob boomer?',
+        '<@450260788981137408> is an idiot',
     ]
 
     if message.content in ('This bot sucks','this bot sucks', 'Thus bot is bad', 'scotland bot needs work', 'ew this bot', 'scotland sucks'):
