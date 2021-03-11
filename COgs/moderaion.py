@@ -70,7 +70,7 @@ class Cog(commands.Cog):
     @commands.has_guild_permissions(manage_messages = True)
     async def dm(self,ctx, member: discord.Member, * , text=None):
         await member.send(f"{text}")
-        await ctx.send(f"{member} was sent a DM by {ctx.author.mention} Message :``` {text} ```")
+        await ctx.send(f"{member} was sent a DM by {ctx.author} Message :``` {text} ```")
 
     @commands.command()
     @commands.guild_only()
