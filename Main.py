@@ -105,7 +105,7 @@ async def on_message(message):
         '<@450260788981137408> is an idiot',
     ]
 
-    if message.content in ('This bot sucks','this bot sucks', 'Thus bot is bad', 'scotland bot needs work', 'ew this bot', 'scotland sucks'):
+    if message.content in ('This bot sucks','this bot sucks', 'Thus bot is bad', 'scotland bot needs work', 'ew this bot', 'scotland sucks', 'ethan'):
         response = random.choice(brooklyn_99_quotes)
         await message.channel.send(response)
     await bot.process_commands(message)
