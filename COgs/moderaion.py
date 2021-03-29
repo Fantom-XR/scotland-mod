@@ -21,7 +21,7 @@ class Cog(commands.Cog):
     @commands.has_guild_permissions(ban_members = True)
     async def ban(self, ctx, member: discord.Member, * , reason = None):
         """"|| Bans a member"""
-        await member.send(f"you were baned by {ctx.author.mention} for following reason(s) : {reason}")
+        await member.send(f"you were baned by {ctx.author.mention} for following reason(s) : {reason} \n If you think you were banned wrongly ot would like to appeal then please join this server; \n https://discord.gg/hvuKh3GPwS")
         await member.ban(reason = reason)
         await ctx.send(f"{member.mention} was baned by {ctx.author.mention} reason : {reason}")
     
