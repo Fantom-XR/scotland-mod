@@ -10,7 +10,7 @@ bot.remove_command("help")
 @bot.event
 async def on_ready():
     print("signed as Scotland Moderation \n prefix is :")
-    await bot.change_presence(activity=discord.Game(name="Stay Home | Protect the NHS | Save Lives"))
+    await bot.change_presence(activity=discord.Game(name="with Tyler 🙈"))
 
 @bot.command()
 async def ping(ctx):
