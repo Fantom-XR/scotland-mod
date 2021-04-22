@@ -16,8 +16,17 @@ async def ping(ctx):
     await ctx.send(f"{round(bot.latency * 1000)} ms")
 
 @bot.command()
-async def idle(ctx):
-    await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.playing, name="with Woodsey 🙈"))
+async def idle(ctx, * , text=None):
+    await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.playing, name=f"{text}"))
+
+@bot.command()
+async def dnd(ctx, * , text=None):
+    await bot.change_presence(status=discord.Status.do_not_disturb, activity=discord.Activity(type=discord.ActivityType.playing, name=f"{text}"))
+
+@bot.command()
+async def online(ctx, * , text=None):
+    await bot.change_presence(status=discord.Status.online, activity=discord.Activity(type=discord.ActivityType.playing, name=f"{text}"))
+
     
 @bot.event
 async def on_member_join(member):
