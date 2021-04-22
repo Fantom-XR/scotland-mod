@@ -2,16 +2,31 @@ import discord
 from discord.ext import commands, tasks
 from discord.ext.commands.cooldowns import BucketType
 import random
+client = discord.Client()
 
 bot = commands.Bot(command_prefix=commands.when_mentioned_or(':'))
 bot.remove_command("help")
 
 
-@bot.event
-async def on_ready():
-    print("signed as Scotland Moderation \n prefix is :")
-    await bot.change_presence(status=discord.Status.idle, activity=discord.Game(name="with Tyler 🙈"))
+@client.event
+async def on_message(message):
+    # we do not want the bot to reply to itself
+    if message.author == client.user:
+        return
 
+    if message.content.startswith('!hug'):
+        await client.send_message(message.channel, "hugs {0.author.mention}".format(message))
+
+    # Greetings
+    if message.content.startswith('hello'):
+        msg = 'Hello {0.author.mention}'.format(message)
+        await client.send_message(message.channel, msg)        
+
+    # say (id) is the best
+    # This is where I am lost. how to mention someone's name or id ?
+    if message.content.startswith('!best'):
+        mid = User.id('ZERO#6885').format(message)
+        await client.send_message(message.channel, '{mid} mentioned')
 @bot.command()
 async def ping(ctx):
     """|| Tells the bot's latency """
