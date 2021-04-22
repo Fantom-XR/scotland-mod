@@ -21,7 +21,7 @@ async def idle(ctx, * , text=None):
 
 @bot.command()
 async def dnd(ctx, * , text=None):
-    await bot.change_presence(status=discord.Status.do_not_disturb, activity=discord.Activity(type=discord.ActivityType.playing, name=f"{text}"))
+    await bot.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.playing, name=f"{text}"))
 
 @bot.command()
 async def online(ctx, * , text=None):
