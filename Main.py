@@ -16,14 +16,17 @@ async def ping(ctx):
     await ctx.send(f"{round(bot.latency * 1000)} ms")
 
 @bot.command()
+@commands.has_guild_permissions(administrator = True)
 async def idle(ctx, * , text=None):
     await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.playing, name=f"{text}"))
 
 @bot.command()
+@commands.has_guild_permissions(administrator = True)
 async def dnd(ctx, * , text=None):
     await bot.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.playing, name=f"{text}"))
 
 @bot.command()
+@commands.has_guild_permissions(administrator = True)
 async def online(ctx, * , text=None):
     await bot.change_presence(status=discord.Status.online, activity=discord.Activity(type=discord.ActivityType.playing, name=f"{text}"))
 
