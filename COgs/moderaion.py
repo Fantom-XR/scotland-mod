@@ -76,7 +76,7 @@ class Cog(commands.Cog):
     @commands.guild_only()
     @commands.has_guild_permissions(manage_messages = True)
     async def accept(self,ctx, member: discord.Member, * , text=None):
-        await member.send(f"__**Application Result**__ \n \n Dear {member.mention}, \n Congratulations your application to become a member of staff at Scotland™ has been accepted, you will go through the next two phases shortly and will be contacted by {ctx.author.mention} regarding this. \n \n **Application Reader:** {ctx.author} \n **Comments:** {text} \n \n Once again congratulations. \n \n Many Thanks \n {ctx.author.mention} on behalf of Scotland:tm: Management Team")
+        await member.send(f"__**Application Result**__ \n \n Dear {member.mention}, \n Congratulations your application to become a member of staff at Scotland™ has been accepted, you will go through the next two phases shortly and will be contacted by {ctx.author.mention} regarding this. \n \n **Application Reader:** {ctx.author.mention} \n **Comments:** {text} \n \n Once again congratulations. \n \n Many Thanks \n {ctx.author.mention} on behalf of Scotland:tm: Management Team")
         await ctx.send(f"{member} was sent a DM by {ctx.author} Message :``` {text} ```")
 
 
