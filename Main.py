@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands, tasks
 from discord.ext.commands.cooldowns import BucketType
 import random
-client = discord.Client()
 
 bot = commands.Bot(command_prefix=commands.when_mentioned_or(':'))
 bot.remove_command("help")
@@ -11,7 +10,7 @@ bot.remove_command("help")
 async def on_ready():
     await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.playing, name="with Tyler 🙈"))
 
-    @bot.command()
+@bot.command()
 async def ping(ctx):
     """|| Tells the bot's latency """
     await ctx.send(f"{round(bot.latency * 1000)} ms")
