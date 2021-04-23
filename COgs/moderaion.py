@@ -70,6 +70,7 @@ class Cog(commands.Cog):
     @commands.has_guild_permissions(manage_messages = True)
     async def dm(self,ctx, member: discord.Member, * , text=None):
         await member.send(f"{text}")
+        await ctx.message.delete()
         await ctx.send(f"{member} was sent a DM by {ctx.author} Message :``` {text} ```")
         
     @commands.command()
@@ -77,6 +78,7 @@ class Cog(commands.Cog):
     @commands.has_guild_permissions(manage_messages = True)
     async def accept(self,ctx, member: discord.Member, * , text=None):
         await member.send(f"__**Application Result**__ \n \n Dear {member.mention}, \n Congratulations your application to become a member of staff at Scotland™ has been accepted, you will go through the next two phases shortly and will be contacted by this bot again regarding this. \n \n **Application Reader:** {ctx.author.mention} \n **Comments:** {text} \n \n Once again congratulations. \n \n Many Thanks \n {ctx.author.mention} on behalf of Scotland:tm: Management Team")
+        await ctx.message.delete()
         await ctx.send(f"{member} was sent there application result which was a pass by {ctx.author} Comments :``` {text} ```")
         
     @commands.command()
@@ -84,6 +86,7 @@ class Cog(commands.Cog):
     @commands.has_guild_permissions(manage_messages = True)
     async def decline(self,ctx, member: discord.Member, * , text=None):
         await member.send(f"__**Application Result**__ \n \n Dear {member.mention}, \n Unfortunately your application to become a member of staff at Scotland™ has been declined. \n \n **Application Reader:** {ctx.author.mention} \n **Comments:** {text} \n \n Regards \n {ctx.author.mention} on behalf of Scotland:tm: Management Team")
+        await ctx.message.delete()
         await ctx.send(f"{member} was sent there application result which was a decline by {ctx.author} Comments :``` {text} ```")
 
 
