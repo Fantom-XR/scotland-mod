@@ -76,10 +76,24 @@ class Cog(commands.Cog):
     @commands.guild_only()
     @commands.has_guild_permissions(manage_messages = True)
     async def accept(self,ctx, member: discord.Member, * , text=None):
-        await member.send(f"__**Application Result**__ \n \n Dear {member.mention}, \n Congratulations your application to become a member of staff at Scotland™ has been accepted, you will go through the next two phases shortly and will be contacted by {ctx.author.mention} regarding this. \n \n **Application Reader:** {ctx.author.mention} \n **Comments:** {text} \n \n Once again congratulations. \n \n Many Thanks \n {ctx.author.mention} on behalf of Scotland:tm: Management Team")
-        await ctx.send(f"{member} was sent a DM by {ctx.author} Message :``` {text} ```")
+        await member.send(f"__**Application Result**__ \n \n Dear {member.mention}, \n Congratulations your application to become a member of staff at Scotland™ has been accepted, you will go through the next two phases shortly and will be contacted by this bot again regarding this. \n \n **Application Reader:** {ctx.author.mention} \n **Comments:** {text} \n \n Once again congratulations. \n \n Many Thanks \n {ctx.author.mention} on behalf of Scotland:tm: Management Team")
+        await ctx.send(f"{member} was sent there application result which was a pass by {ctx.author} Comments :``` {text} ```")
+        
+    @commands.command()
+    @commands.guild_only()
+    @commands.has_guild_permissions(manage_messages = True)
+    async def decline(self,ctx, member: discord.Member, * , text=None):
+        await member.send(f"__**Application Result**__ \n \n Dear {member.mention}, \n Unfortunately your application to become a member of staff at Scotland™ has been declined. \n \n **Application Reader:** {ctx.author.mention} \n **Comments:** {text} \n \n Regards \n {ctx.author.mention} on behalf of Scotland:tm: Management Team")
+        await ctx.send(f"{member} was sent there application result which was a decline by {ctx.author} Comments :``` {text} ```")
 
 
+    @commands.command()
+    @commands.guild_only()
+    @commands.has_guild_permissions(manage_messages = True)
+    async def phase2(self,ctx, member: discord.Member):
+        await member.send(f"__**Application Phase 2**__ \n \n Dear {member.mention}, \n Congratulations on your application to become a member of staff at Scotland™ being accepted, this is a DM to provide you with phase 2. \n \n **Link:** https://forms.gle/rtYm4yiWryYTcbGe7 \n \n Once again congratulations. \n \n Many Thanks \n {ctx.author.mention} on behalf of Scotland:tm: Management Team")
+        await ctx.send(f"{member} was sent phase 2 by {ctx.author}")
+    
     @commands.command()
     @commands.guild_only()
     @commands.has_guild_permissions(manage_messages = True)
