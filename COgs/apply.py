@@ -1,13 +1,16 @@
 import discord
 from discord.ext import commands
+import random
 import asyncio
 from discord.ext.commands.cooldowns import BucketType
 
 class marketplace(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-    
+Alphabet = ["A", "a", "B", "b", "C", "c", "D", "d", "E", "e", "F", "f", "G", "g", "H", "h", "I", "i", "J", "j", "K", "k", "L", "l", "M", "m", "N", "n", "O", "o", "P", "p", "Q", "q", "R", "r", "S", "s", "T", "t", "U", "u", "V", "v", "W", "w", "X", "x", "Y", "y", "Z", "z"]
+
     @commands.command()
+    id = random.choice(Alphabet) + random.choice(Alphabet) + random.choice(Alphabet) + random.choice(Alphabet) + random.choice(Alphabet) + random.choice(Alphabet)
     async def apply(self, ctx):
         await ctx.send('Check for a DM by <@814852722087034891>')
         await ctx.author.send("""**Scotland™ Staff Application**
@@ -56,7 +59,7 @@ Say "next" to continue, or say "cancel" if you wish not to do the application.
                         except asyncio.TimeoutError:
                             await ctx.author.send("Timed out")
                         else:
-                            await ctx.author.send('Your application has been submit. [ Phase 1/3 ] \n Phase 2 is more questions and an exam. \n Phase 3 is a trial phase')
+                            await ctx.author.send(f'Your application has been submit. [ Phase 1/3 ] \n Phase 2 is more questions and an exam. \n Phase 3 is a trial phase {id}')
 
         embed = discord.Embed(timestamp=ctx.message.created_at)
         embed.set_author(name=f"New Application")
