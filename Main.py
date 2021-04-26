@@ -46,14 +46,7 @@ async def on_member_remove(member):
 async def info(ctx, *, member: discord.Member):
     """|| Tells you some info about the member."""
     fmt = '{0} joined on {0.joined_at} and has {1} roles.'
-    await ctx.send(fmt.format(member, len(member.roles))) 
-
-"""@bot.command()
-@commands.guild_only()
-@commands.has_guild_permissions(administrator = True)
-async def dm(ctx, member: discord.Member, * , text=None) :
-    await member.send(f"{text}")"""
-    
+    await ctx.send(fmt.format(member, len(member.roles)))     
 
 @bot.command()
 @commands.guild_only()
@@ -89,17 +82,10 @@ async def group(ctx):
     """|| Gives you link the the group!"""
     await ctx.send("https://www.roblox.com/groups/4170430/Scotland#!/about")
 
-
-'''@bot.command(name="8ball")
-async def _ball(ctx):
-    """|| its a 8ball!"""
-    await ctx.send(random.choice(["yes", "no", "maybe", "ask person above you", "why asking me you bully", "who knows?", "im busy talk later", "no u",]))'''
-
-
 @tasks.loop(seconds = 600)
 async def member():
     name1 = (f"Member Count : {member.guild.member_count}")
-    chan = member.guild.get_channel(806253474265563166)
+    chan = member.guild.get_channel(794317984633323532)
     await chan.edit(name=name1)
 
 @bot.command()
