@@ -44,6 +44,6 @@ class Help(commands.Cog):
         await ctx.author.send(embed=embed)
         await ctx.author.send(embed=embed2)
        # await ctx.author.send(embed=embed3)
-        await ctx.reply(content="Test")
+        await ctx.reply(content="**Please check your DMs!**")
 def setup(bot):
     bot.add_cog(Help(bot))
