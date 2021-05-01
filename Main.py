@@ -8,7 +8,7 @@ bot.remove_command("help")
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(status=discord.Status.online, activity=discord.Activity(type=discord.ActivityType.playing, name="with Tyler 🙈"))
+    await bot.change_presence(status=discord.Status.online-mobile, activity=discord.Activity(type=discord.ActivityType.playing, name="with Tyler 🙈"))
 
 @bot.command()
 async def ping(ctx):
