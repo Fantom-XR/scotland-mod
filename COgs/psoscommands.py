@@ -41,14 +41,14 @@ class psoscommands(commands.Cog):
                 except asyncio.TimeoutError:
                     await ctx.author.send("time out!")
                 else:
-                  embed5 = discord.Embed(title="Rank", description="What rank and below should attend. Provice the ID.")
+                  embed5 = discord.Embed(title="Rank", description="What rank and below should attend. Provdce the ID.")
                 await ctx.author.send(embed=embed5)
                 try:
                     role = await self.bot.wait_for('message', check=check, timeout=120)
                 except asyncio.TimeoutError:
                     await ctx.author.send("time out!")
                 else:
-                    await ctx.author.send(f"Your embed has been posted! Look in <#{echannel.content}>")
+                    await ctx.author.send(f"Your training has been posted!")
                 
         title = "It's training time!"
         description = f"**{time.content}** \n\n Everyone is expected to be there from the rank of {role.content} downwards. \n\n **{help.content}** Will assist me in the training, you will all be taking part.\n\n You will join {link.content} at {time2.content}."
