@@ -56,49 +56,7 @@ class psoscommands(commands.Cog):
         channel = self.bot.get_channel(840172742212583444)
         await channel.send("this will be a ping after testing")
         await channel.send(embed = embed)
-
-
-
-   """@commands.command()
-    @commands.has_guild_permissions(manage_messages = True)
-    async def picembed(self, ctx):
-        await ctx.send('Look for a DM by <@814819626617274369>')
-        await ctx.author.send("What do you want to title to be?")
-        def check(msg):
-            return not msg.guild and msg.author == ctx.author
-        try:
-            etitle = await self.bot.wait_for('message', check=check, timeout=120)
-        except asyncio.TimeoutError:
-            await ctx.author.send("Timed out")
-        else:
-            await ctx.author.send("What do you want the description to be?")
-            try:
-                edescription = await self.bot.wait_for('message', check=check, timeout=120)
-            except asyncio.TimeoutError:
-                await ctx.author.send("Timed out")
-            else:
-                await ctx.author.send("Please now provide me the channel ID for the channel you want the embed to be sent to.")
-                try:
-                    echannel = await self.bot.wait_for('message', check=check, timeout=120)
-                except asyncio.TimeoutError:
-                    await ctx.author.send("time out!")
-                else:
-                    await ctx.author.send("Please provide an image, it must NOT be a link.")
-                    try:
-                        Image = await self.bot.wait_for('message', check=check, timeout=120)
-                        attachment = Image.attachments[0]
-                        attachment_url = attachment.url
-                    except asyncio.TimeoutError:
-                        await ctx.author.send("Timed out")
-                    else:
-                        await ctx.author.send(f"Your embed has been posted! Look in <#{echannel.content}>")
-                
         
-        colour = discord.Colour.from_rgb(228, 24, 100)
-        embed = discord.Embed(colour = colour, title = etitle.content , description = edescription.content)
-        embed.set_image(url=attachment_url)
-        channel = self.bot.get_channel(int(echannel.content))
-        await channel.send(embed = embed)"""
-
+        
 def setup(bot):
     bot.add_cog(marketplace(bot))
