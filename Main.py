@@ -112,6 +112,6 @@ bot.load_extension("COgs.moderaion")
 bot.load_extension("COgs.apply")
 bot.load_extension("COgs.sfrs")
 bot.load_extension("COgs.nhs")
-#bot.load_extension("COgs.verify")
+bot.load_extension("COgs.psoscommands")
 
 bot.run("ODE0ODU3MTEyNDU4MTAwNzM2.YDj80g.pC1y73miU8JS1B2h-nN86e9ouDw")
