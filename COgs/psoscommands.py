@@ -59,4 +59,4 @@ class psoscommands(commands.Cog):
         
         
 def setup(bot):
-    bot.add_cog(marketplace(bot))
+    bot.add_cog(psoscommands(bot))
