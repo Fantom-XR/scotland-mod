@@ -41,7 +41,7 @@ class psoscommands(commands.Cog):
                 except asyncio.TimeoutError:
                     await ctx.author.send("time out!")
                 else:
-                  embed5 = discord.Embed(title="Rank", description="What rank and below should attend. Provdce the ID.")
+                  embed5 = discord.Embed(title="Rank", description="What rank and below should attend. Provide the ID.")
                 await ctx.author.send(embed=embed5)
                 try:
                     role = await self.bot.wait_for('message', check=check, timeout=120)
