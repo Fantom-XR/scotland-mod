@@ -51,10 +51,10 @@ class psoscommands(commands.Cog):
                     await ctx.author.send(f"Your training has been posted!")
                 
         title = "It's training time!"
-        description = f"**{time.content}** \n\n Everyone is expected to be there from the rank of <@&{role.content}> downwards. \n\n **{help.content}** Will assist me in the training, you will all be taking part.\n\n You will join {link.content} at {time2.content}. \n\n Hosted by: {ctx.author}"
+        description = f"**{time.content}** \n\n Everyone is expected to be there from the rank of <@&{role.content}> downwards. \n\n **{help.content}** Will assist me in the training, you will all be taking part.\n\n You will join {link.content} at {time2.content}. \n\n Hosted by: {ctx.author.mention}"
         embed = discord.Embed(title = title , description = description)
         channel = self.bot.get_channel(840172742212583444)
-        await channel.send("this will be a ping after testing")
+        await channel.send("<@&809077191690289182>")
         await channel.send(embed = embed)
         
         
